@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_standard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&amp;family=Inter:wght@400;500;600&amp;family=JetBrains+Mono:wght@400;500;600&amp;family=Space+Grotesk:wght@500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "secondary-fixed-dim": "#bec6e0", "on-primary": "#ffffff", "on-error-container": "#93000a", "surface-dim": "#cbdbf5", "error-container": "#ffdad6", "tertiary-fixed": "#85f8c4", "on-primary-fixed-variant": "#004b74", "primary-container": "#0369a1", "surface-container": "#f1f5f9", "tertiary-container": "#00724f", "on-secondary-fixed-variant": "#3f465c", "primary-fixed-dim": "#94ccff", "on-secondary-fixed": "#131b2e", "surface-container-lowest": "#ffffff", "tertiary": "#00573b", "tertiary-fixed-dim": "#68dba9", "surface-container-highest": "#e2e8f0", "surface-variant": "#f1f5f9", "on-tertiary-fixed": "#002114", "background": "#ffffff", "surface-container-high": "#e8eef5", "on-background": "#0b1c30", "on-tertiary-container": "#83f7c2", "inverse-primary": "#94ccff", "inverse-surface": "#213145", "surface-tint": "#006399", "outline": "#94a3b8", "secondary": "#475569", "surface": "#ffffff", "secondary-container": "#e2e8f0", "on-surface": "#0f172a", "inverse-on-surface": "#eaf1ff", "on-secondary-container": "#334155", "on-error": "#ffffff", "error": "#ba1a1a", "on-primary-container": "#cbe4ff", "primary": "#0284c7", "surface-bright": "#ffffff", "surface-container-low": "#f8fafc", "on-tertiary-fixed-variant": "#005137", "on-tertiary": "#ffffff", "outline-variant": "#cbd5e1", "on-primary-fixed": "#001d32", "on-surface-variant": "#475569", "secondary-fixed": "#dae2fd", "primary-fixed": "#cde5ff", "on-secondary": "#ffffff" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-xs": "0.25rem", "margin": "2rem", "space-md": "1rem", "space-xl": "2.5rem", "gutter-lg": "2rem", "margin-desktop": "3rem", "margin-mobile": "1rem", "gutter-sm": "1rem", "space-sm": "0.5rem", "gutter": "1.5rem", "space-lg": "1.5rem" }, "fontFamily": { "headline-sm": [ "Hanken Grotesk", "Space Grotesk", "sans-serif" ], "label-code": [ "JetBrains Mono", "monospace" ], "headline-xl-mobile": [ "Hanken Grotesk", "Space Grotesk", "sans-serif" ], "display-lg-mobile": [ "Hanken Grotesk", "Space Grotesk", "sans-serif" ], "label-caps": [ "Inter", "sans-serif" ], "body-sm": [ "Inter", "sans-serif" ], "audit-hash": [ "JetBrains Mono", "monospace" ], "headline-xl": [ "Hanken Grotesk", "Space Grotesk", "sans-serif" ], "body-lg": [ "Inter", "sans-serif" ], "display-lg": [ "Hanken Grotesk", "Space Grotesk", "sans-serif" ], "headline-lg": [ "Hanken Grotesk", "Space Grotesk", "sans-serif" ], "body-md": [ "Inter", "sans-serif" ] }, "fontSize": { "headline-sm": [ "20px", { "lineHeight": "28px", "letterSpacing": "-0.015em", "fontWeight": "600" } ], "label-code": [ "12px", { "lineHeight": "16px", "letterSpacing": "-0.01em", "fontWeight": "500" } ], "headline-xl-mobile": [ "26px", { "lineHeight": "34px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "display-lg-mobile": [ "32px", { "lineHeight": "40px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "label-caps": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.06em", "fontWeight": "600" } ], "body-sm": [ "12px", { "lineHeight": "16px", "letterSpacing": "0em", "fontWeight": "400" } ], "audit-hash": [ "11px", { "lineHeight": "14px", "letterSpacing": "0.02em", "fontWeight": "500" } ], "headline-xl": [ "36px", { "lineHeight": "44px", "letterSpacing": "-0.025em", "fontWeight": "600" } ], "body-lg": [ "16px", { "lineHeight": "26px", "letterSpacing": "-0.005em", "fontWeight": "400" } ], "display-lg": [ "48px", { "lineHeight": "56px", "letterSpacing": "-0.03em", "fontWeight": "700" } ], "headline-lg": [ "28px", { "lineHeight": "36px", "letterSpacing": "-0.02em", "fontWeight": "600" } ], "body-md": [ "14px", { "lineHeight": "22px", "letterSpacing": "-0.006em", "fontWeight": "400" } ] } } } };</script></head><body class="bg-white font-body-md text-slate-900 antialiased"><header class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-slate-200 shadow-sm"><div class="bg-slate-50 border-b border-slate-200/80 py-1.5 px-6 lg:px-12 flex items-center justify-between"><div class="flex items-center gap-space-sm max-w-7xl mx-auto w-full"><span class="flex h-1.5 w-1.5 rounded-full bg-emerald-600 animate-pulse"></span><span class="font-label-caps text-label-caps text-emerald-700 font-semibold uppercase tracking-wider">REGULATORY NOTICE</span><span class="hidden md:inline font-body-sm text-body-sm text-slate-600">US Copyright Office issues 2025 AI Authorship Guidance on human intellectual conception requirements.</span><a class="font-label-code text-label-code text-sky-700 hover:text-sky-900 ml-auto flex items-center gap-1 transition-colors font-medium" data-path="usco-advisory" href="#"><span>VIEW COMPLIANCE BRIEF</span><span class="material-symbols-outlined text-[14px]">arrow_forward</span></a></div></div><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between gap-space-md"><div class="flex items-center gap-3"><img alt="AIthentica Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VPhdPG7eQ6Oz4_z3WEoNMo39ILR_s9udAGpMpKGJiUjVahgSbvwzR737lr6t8dHhDmtK37f-3tI65wgAVmmLe4ifm3VHU-2Rs5GfTiuHQV8je57mKAZbNl74SCGKIgAQZljih5sA9mcI8zSJibpZUg34IoQPHrVHQqCfmFlwoNKYNWXGPFObbJUIq_t6BWAwLsfVPiJkjPhEwT4vNMb-VLwCC-uXcK8tilAyN_ytdO5Q-yYQdLaTxDiqY"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm text-slate-950 tracking-tight font-bold">AIthentica</span><span class="font-label-caps text-[10px] text-slate-500 uppercase tracking-wider font-semibold">Enterprise IP Provenance</span></div></div><nav class="hidden lg:flex items-center gap-space-xs" data-active-classes="bg-slate-100 text-slate-900 font-semibold rounded"><div class="relative group"><button class="flex items-center gap-1 px-3 py-2 rounded text-slate-600 hover:text-slate-950 font-body-md text-body-md transition-colors"><span class="pointer-events-none font-medium">Platform</span><span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-slate-700">expand_more</span></button><div class="absolute left-0 top-full hidden group-hover:flex flex-col w-64 p-space-sm bg-white rounded-lg border border-slate-200 shadow-xl"><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="human-authorship-tracker" href="#">Human Authorship Tracker</a><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="code-license-scanner" href="#">Code License Scanner</a><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="provenance-ledger" href="#">Provenance Ledger</a></div></div><div class="relative group"><button class="flex items-center gap-1 px-3 py-2 rounded text-slate-600 hover:text-slate-950 font-body-md text-body-md transition-colors"><span class="pointer-events-none font-medium">Solutions</span><span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-slate-700">expand_more</span></button><div class="absolute left-0 top-full hidden group-hover:flex flex-col w-64 p-space-sm bg-white rounded-lg border border-slate-200 shadow-xl"><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="solutions-legal-compliance" href="#">For Legal &amp; Compliance</a><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="solutions-engineering" href="#">For Engineering Teams</a><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="solutions-creative-design" href="#">For Creative &amp; Design</a></div></div><div class="relative group"><button class="flex items-center gap-1 px-3 py-2 rounded text-slate-600 hover:text-slate-950 font-body-md text-body-md transition-colors"><span class="pointer-events-none font-medium">The IP Threat</span><span class="material-symbols-outlined text-[16px] text-slate-400 group-hover:text-slate-700">expand_more</span></button><div class="absolute left-0 top-full hidden group-hover:flex flex-col w-64 p-space-sm bg-white rounded-lg border border-slate-200 shadow-xl"><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="training-liability" href="#">Training Liability</a><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="usco-registration" href="#">USCO Registration</a><a class="px-3 py-2 rounded font-body-sm text-body-sm text-slate-700 hover:bg-slate-100 hover:text-slate-900 transition-colors" data-path="black-box-risk" href="#">Black Box Risk</a></div></div><a class="px-3 py-2 rounded text-slate-600 hover:text-slate-950 font-body-md text-body-md font-medium transition-colors" data-path="documentation" href="#">Resources &amp; Documentation</a></nav><div class="flex items-center gap-space-sm"><a class="hidden sm:inline-flex items-center px-4 py-2 rounded border border-slate-300 bg-white hover:bg-slate-50 text-slate-700 font-body-sm text-body-sm font-medium transition-colors shadow-sm" data-path="repository-scan" href="#">Scan Your Repository</a><a class="inline-flex items-center px-4 py-2 rounded bg-sky-600 hover:bg-sky-700 text-white font-body-sm text-body-sm transition-colors font-semibold shadow-sm" data-path="request-access" href="#">Request Access / Demo</a><div class="w-8 h-8 rounded-full bg-slate-100 border border-slate-300 flex items-center justify-center shrink-0 text-slate-700"><span class="material-symbols-outlined text-[18px]">person</span></div></div></div></header><main class="w-full pt-28 bg-white"><div class="flex flex-col w-full">
+<!-- HERO SECTION -->
+<section class="relative w-full pt-10 pb-20 overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-50/50">
+<!-- Ambient subtle light-blue glow -->
+<div class="absolute top-10 left-1/2 -translate-x-1/2 w-[900px] h-[360px] bg-sky-100/50 blur-[130px] rounded-full pointer-events-none"></div>
+<div class="absolute top-48 right-12 w-[340px] h-[240px] bg-emerald-100/40 blur-[100px] rounded-full pointer-events-none"></div>
+<div class="max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center text-center relative z-10">
+<!-- Eyebrow Badge -->
+<div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-emerald-50 text-emerald-800 border border-emerald-200 shadow-sm mb-6">
+<span class="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+<span class="font-label-caps text-label-caps uppercase tracking-wider font-semibold text-emerald-700">Announcing Provenance Guard 1.0</span>
+<span class="text-emerald-300 font-label-code text-label-code">•</span>
+<span class="font-label-code text-label-code text-emerald-900 font-medium">Defend Your Enterprise IP</span>
+</div>
+<!-- Main Headline -->
+<h1 class="font-display-lg text-display-lg max-w-4xl text-slate-900 tracking-tight font-bold mb-6">
+        Secure Human Authorship &amp; <br class="hidden sm:inline"/>
+<span class="text-transparent bg-clip-text bg-gradient-to-r from-sky-600 via-sky-700 to-emerald-600">Eliminate AI Copyright Risk</span>
+</h1>
+<!-- Subtitle -->
+<p class="font-body-lg text-body-lg text-slate-600 max-w-3xl mb-10 leading-relaxed">
+        Generative AI introduces unprecedented intellectual property liabilities. AIthentica establishes cryptographic proof of human creative contribution and scans AI-generated code to prevent open-source license contamination.
+      </p>
+<!-- Dual CTAs -->
+<div class="flex flex-col sm:flex-row items-center gap-4 mb-16 w-full sm:w-auto">
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded bg-sky-600 hover:bg-sky-700 text-white font-headline-sm text-[15px] font-semibold transition-all shadow-md hover:shadow-lg" data-path="repository-scan" href="#">
+<span class="material-symbols-outlined text-[18px]">verified_user</span>
+<span>Start Free Repository Scan</span>
+</a>
+<a class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-headline-sm text-[15px] font-medium transition-all shadow-sm" data-path="request-access" href="#">
+<span class="material-symbols-outlined text-[18px] text-slate-500">gavel</span>
+<span>Book IP Audit Briefing</span>
+</a>
+</div>
+<!-- Trust Bar / Key Evidentiary Metrics -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full max-w-5xl mb-16">
+<div class="bg-white p-5 rounded-lg border border-slate-200/80 text-left flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="p-2 rounded-md bg-amber-50 text-amber-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px] block">warning</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-slate-900 font-bold tracking-tight">94%</div>
+<div class="font-body-sm text-body-sm text-slate-600 mt-0.5">Fortune 500 AI deployments lack verifiable legal authorship proof.</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-slate-200/80 text-left flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="p-2 rounded-md bg-emerald-50 text-emerald-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px] block">shield</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-slate-900 font-bold tracking-tight">Zero-Copyleft Gate</div>
+<div class="font-body-sm text-body-sm text-slate-600 mt-0.5">Scan for GPL, AGPL, and SSPL reciprocal contamination in seconds.</div>
+</div>
+</div>
+<div class="bg-white p-5 rounded-lg border border-slate-200/80 text-left flex items-start gap-3 shadow-sm hover:shadow-md transition-shadow">
+<div class="p-2 rounded-md bg-sky-50 text-sky-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[22px] block">assured_workload</span>
+</div>
+<div>
+<div class="font-headline-sm text-headline-sm text-slate-900 font-bold tracking-tight">Dual Certified</div>
+<div class="font-body-sm text-body-sm text-slate-600 mt-0.5">Compliant with US Copyright Office &amp; EU AI Act Title III guidelines.</div>
+</div>
+</div>
+</div>
+<!-- Hero Visual / Interactive Dual Preview Deck (Ultra-Clean Studio Light Mode) -->
+<div class="w-full max-w-6xl rounded-xl bg-slate-100 p-2.5 lg:p-3.5 border border-slate-200 shadow-xl">
+<div class="bg-white rounded-lg border border-slate-200/80 p-3 sm:p-5 flex flex-col gap-4 shadow-sm">
+<!-- Window Header Bar -->
+<div class="flex items-center justify-between pb-3 border-b border-slate-100">
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-amber-400 inline-block"></span>
+<span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span>
+<span class="ml-2 font-label-code text-label-code text-slate-500 hidden sm:inline font-semibold">provenance_daemon // cluster-node-alpha-4</span>
+</div>
+<div class="flex items-center gap-3">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-200 font-label-code text-[11px] text-emerald-700 font-semibold">
+<span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                ACTIVE AUDIT STREAM
+              </span>
+<span class="font-label-code text-label-code text-slate-400 hidden md:inline">SIG_HASH: 0x98ef..c741</span>
+</div>
+</div>
+<!-- Split Deck Grid -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
+<!-- Panel 1: Creative Genesis Ledger -->
+<div class="lg:col-span-7 bg-slate-50/60 rounded-lg border border-slate-200 p-5 flex flex-col justify-between text-left">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-700 text-[20px]">fingerprint</span>
+<h3 class="font-headline-sm text-[16px] text-slate-900 font-bold">Creative Genesis Ledger</h3>
+</div>
+<span class="px-2.5 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-label-caps text-[10px] uppercase font-semibold">USCO Registration Eligible</span>
+</div>
+<!-- Authorship Split Metric Bar -->
+<div class="bg-white p-4 rounded border border-slate-200 mb-5 shadow-xs">
+<div class="flex items-center justify-between font-label-code text-label-code mb-2">
+<span class="text-emerald-700 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">person</span> 78.4% Human Authorship
+                    </span>
+<span class="text-sky-700 font-bold flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">neurology</span> 21.6% Synthetic Suggestion
+                    </span>
+</div>
+<div class="w-full h-2.5 rounded bg-slate-100 border border-slate-200 flex overflow-hidden">
+<div class="h-full bg-emerald-500" style="width: 78.4%"></div>
+<div class="h-full bg-sky-500" style="width: 21.6%"></div>
+</div>
+<p class="font-label-code text-[11px] text-slate-500 mt-2.5">
+                    Criterion met: Substantial human intellectual conception (37 CFR § 202.03) verified across 412 delta snapshots.
+                  </p>
+</div>
+<!-- Event Timeline Items -->
+<div class="flex flex-col gap-2 font-label-code text-label-code">
+<div class="p-2.5 rounded bg-white border border-slate-200 flex items-center justify-between shadow-2xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-emerald-600 text-[16px]">edit_note</span>
+<span class="text-slate-900 font-semibold">Commit #481a9:</span>
+<span class="truncate max-w-[220px] text-slate-600">Manual conceptual architecture refactor</span>
+</div>
+<span class="text-emerald-700 shrink-0 font-bold">+1,280 keystrokes</span>
+</div>
+<div class="p-2.5 rounded bg-white border border-slate-200 flex items-center justify-between shadow-2xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-600 text-[16px]">smart_toy</span>
+<span class="text-slate-900 font-semibold">Prompt Step #12:</span>
+<span class="truncate max-w-[220px] text-slate-600">Claude-3.7 scaffold generation discarded 62%</span>
+</div>
+<span class="text-slate-500 shrink-0 font-medium">Supervised Diff</span>
+</div>
+<div class="p-2.5 rounded bg-white border border-slate-200 flex items-center justify-between shadow-2xs">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-sky-700 text-[16px]">assignment_turned_in</span>
+<span class="text-slate-900 font-semibold">Legal Seal:</span>
+<span class="truncate max-w-[220px] text-slate-600">Chief IP Counsel cryptographic co-attestation</span>
+</div>
+<span class="text-sky-700 shrink-0 font-bold">BLOCK #91402</span>
+</div>
+</div>
+</div>
+<div class="pt-4 mt-4 border-t border-slate-200 flex items-center justify-between font-label-code text-label-code text-slate-500">
+<span>SHA256: 4f18e9a2b84...</span>
+<a class="text-sky-700 hover:text-sky-900 font-semibold flex items-center gap-1 transition-colors" data-path="usco-registration" href="#">
+                  View Full Attestation Pack <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Panel 2: License Contamination Radar -->
+<div class="lg:col-span-5 bg-rose-50/40 rounded-lg border border-rose-200/80 p-5 flex flex-col justify-between text-left">
+<div>
+<div class="flex items-center justify-between mb-4">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-rose-600 text-[20px]">radar</span>
+<h3 class="font-headline-sm text-[16px] text-slate-900 font-bold">License Contamination Radar</h3>
+</div>
+<span class="px-2 py-0.5 rounded bg-rose-100 text-rose-700 border border-rose-200 font-label-caps text-[10px] uppercase font-semibold">AST Threat Active</span>
+</div>
+<!-- Alert Box -->
+<div class="bg-rose-50 border border-rose-200 p-3.5 rounded mb-4">
+<div class="flex items-start gap-2.5">
+<span class="material-symbols-outlined text-rose-600 text-[20px] shrink-0 mt-0.5">report_problem</span>
+<div>
+<div class="font-headline-sm text-[13px] text-rose-900 font-bold">ALERT: 14 lines matching GPL v3.0 detected</div>
+<p class="font-label-code text-[11px] text-slate-600 mt-1 leading-normal">
+                        Copilot completion matches <code class="text-slate-900 font-bold bg-white px-1 py-0.5 rounded border border-rose-200">git.kernel.org/fs/cache.c</code>. High copyleft viral hazard. Auto-isolated from main repo branch.
+                      </p>
+</div>
+</div>
+</div>
+<!-- Code Isolation Snippet (Ultra-clean Code Contrast Box) -->
+<div class="bg-slate-900 rounded p-3 font-label-code text-[11px] text-slate-300 overflow-hidden mb-4 shadow-inner">
+<div class="flex items-center justify-between pb-1.5 mb-2 border-b border-slate-700 text-slate-400 text-[10px]">
+<span>isolation_quarantine/allocator.go</span>
+<span class="text-rose-400 uppercase font-semibold">GPL-3.0 LEAK</span>
+</div>
+<div class="bg-rose-950/60 text-rose-300 p-1.5 rounded font-label-code mb-1 border-l-2 border-rose-500">
+                    - static void __wake_up_bit(wait_queue_head_t *wq, void *word, int bit)
+                  </div>
+<div class="bg-emerald-950/60 text-emerald-300 p-1.5 rounded font-label-code border-l-2 border-emerald-500">
+                    + func SafeChannelNotifier(ctx context.Context, bus chan Event) error
+                  </div>
+<div class="text-sky-300 mt-2 font-label-code text-[10px]">
+                    &gt; AIthentica Clean-Room rewrite suggested without copyleft taint.
+                  </div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="flex-1 py-2 rounded bg-white border border-slate-300 hover:bg-slate-50 text-slate-700 font-label-code text-[11px] text-center font-medium shadow-2xs transition-colors">
+                  Dismiss False Positive
+                </button>
+<button class="flex-1 py-2 rounded bg-rose-600 hover:bg-rose-700 text-white font-label-code text-[11px] text-center font-semibold shadow-2xs transition-colors">
+                  Purge &amp; Quarantine
+                </button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 1: THE THREE CORE IP PILLARS (DETAILED FEATURE MATRIX) -->
+<section class="w-full py-24 bg-slate-50 border-y border-slate-200/80">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<div class="flex items-center gap-2 font-label-caps text-label-caps text-sky-700 uppercase mb-2 font-semibold">
+<span class="w-2 h-2 rounded-full bg-sky-600 inline-block"></span>
+            Forensic Risk Topology
+          </div>
+<h2 class="font-headline-xl text-headline-xl text-slate-900 font-bold tracking-tight max-w-2xl">
+            The Three Critical Vulnerabilities Threatening Enterprise AI Investments
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-slate-600 max-w-md">
+          Without deterministic proof of human authorship and model lineage, generative software assets are legally unprotected and commercially vulnerable.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Pillar 1 -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm hover:shadow-md">
+<div>
+<div class="w-12 h-12 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-700 mb-6">
+<span class="material-symbols-outlined text-[26px]">gavel</span>
+</div>
+<div class="font-label-caps text-label-caps text-sky-700 font-bold uppercase mb-2">Pillar 01</div>
+<h3 class="font-headline-lg text-[22px] text-slate-900 font-bold mb-3">Training Data Liability</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              AI models trained on copyrighted material can produce outputs that resemble protected works, leading to expensive infringement claims and legal battles.
+            </p>
+<div class="bg-slate-50 border border-slate-200/70 rounded-lg p-4 flex flex-col gap-3 font-label-code text-label-code">
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Real-time likeness detector</span>
+<span class="text-emerald-700 font-bold">99.8% Match</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Contamination scoring</span>
+<span class="text-slate-600">Low Latency</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Infringement indemnity report</span>
+<span class="text-sky-700 font-semibold">Automated</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+<span class="font-label-code text-label-code text-slate-500">Mitigation: Active AST Quarantine</span>
+<span class="material-symbols-outlined text-sky-700 text-[18px]">verified</span>
+</div>
+</div>
+<!-- Pillar 2 -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm hover:shadow-md">
+<div>
+<div class="w-12 h-12 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 mb-6">
+<span class="material-symbols-outlined text-[26px]">history_edu</span>
+</div>
+<div class="font-label-caps text-label-caps text-emerald-700 font-bold uppercase mb-2">Pillar 02</div>
+<h3 class="font-headline-lg text-[22px] text-slate-900 font-bold mb-3">Ownership Vacuum</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              The U.S. Copyright Office refuses to register AI-generated works. Without human authorship documentation, your content has zero legal protection.
+            </p>
+<div class="bg-slate-50 border border-slate-200/70 rounded-lg p-4 flex flex-col gap-3 font-label-code text-label-code">
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> USCO-ready Certificates</span>
+<span class="text-emerald-700 font-bold">CFR Compliant</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Step-by-step human intervention</span>
+<span class="text-slate-600">Audit-Proof</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Patent &amp; copyright defense pack</span>
+<span class="text-sky-700 font-semibold">1-Click PDF</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+<span class="font-label-code text-label-code text-slate-500">Mitigation: Merkle Keystroke Ledger</span>
+<span class="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+</div>
+</div>
+<!-- Pillar 3 -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between hover:border-slate-300 transition-all shadow-sm hover:shadow-md">
+<div>
+<div class="w-12 h-12 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-700 mb-6">
+<span class="material-symbols-outlined text-[26px]">visibility_off</span>
+</div>
+<div class="font-label-caps text-label-caps text-indigo-700 font-bold uppercase mb-2">Pillar 03</div>
+<h3 class="font-headline-lg text-[22px] text-slate-900 font-bold mb-3">"Black Box" Problem</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              You have zero visibility into what copyrighted material influenced your AI outputs. This hidden liability can expose your business to massive, unforeseen risk.
+            </p>
+<div class="bg-slate-50 border border-slate-200/70 rounded-lg p-4 flex flex-col gap-3 font-label-code text-label-code">
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Inference provenance tracking</span>
+<span class="text-emerald-700 font-bold">Token-Level</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Training corpus exposure telemetry</span>
+<span class="text-slate-600">Deep Scanned</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="flex items-center gap-1.5"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check_circle</span> Unredacted model lineage</span>
+<span class="text-sky-700 font-semibold">Immutable</span>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+<span class="font-label-code text-label-code text-slate-500">Mitigation: In-Flight Inference Attestation</span>
+<span class="material-symbols-outlined text-indigo-600 text-[18px]">verified</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: INITIAL LAUNCH SOFTWARE SUITE -->
+<section class="w-full py-24 bg-white">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-3xl mx-auto mb-16">
+<span class="font-label-caps text-label-caps text-emerald-700 font-bold uppercase tracking-wider">Enterprise IP Fortress</span>
+<h2 class="font-headline-xl text-headline-xl text-slate-900 font-bold tracking-tight mt-2 mb-4">
+          Two Flagship Engines. Total Forensic Sovereignty.
+        </h2>
+<p class="font-body-lg text-body-lg text-slate-600">
+          Built for high-velocity teams utilizing modern frontier models without forfeiting legal ownership or intellectual property defense capability.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+<!-- Tool A: Creative Process Provenance Suite -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-sky-50 rounded-full blur-3xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-3 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 font-label-caps text-label-caps uppercase font-bold">Tool A • Authorship &amp; IP Protection</span>
+<span class="font-label-code text-label-code text-emerald-700 flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Live v1.0
+              </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-slate-900 font-bold mb-3">Creative Process Provenance Suite</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Automated background logging of prompt iterations, manual revisions, synthesis stages, and human-in-the-loop approvals for Coders, Designers, Marketers &amp; Legal Teams.
+            </p>
+<!-- Feature Bullet List -->
+<div class="space-y-4 mb-8">
+<div class="flex items-start gap-3">
+<div class="p-1 rounded bg-emerald-50 text-emerald-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] block">lock_clock</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold">One-Click Cryptographic Proofs</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Generates tamper-proof cryptographic proofs of authorship instantly, sealing deltas into an audit-ready ledger.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-1 rounded bg-emerald-50 text-emerald-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] block">extension</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold">Native Workspace Integrations</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Zero-friction plugins for VS Code, JetBrains IDEs, Figma plugins for design provenance, and Google Docs/Microsoft Word for copy teams.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-1 rounded bg-emerald-50 text-emerald-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] block">fact_check</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold">Statutory Conception Index</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Continuous scoring against U.S. Copyright Office "de minimis" thresholds to guarantee human authorship viability.</p>
+</div>
+</div>
+</div>
+<!-- Visual Context Box -->
+<div class="bg-slate-50 border border-slate-200 rounded-lg p-4 font-label-code text-label-code">
+<div class="flex items-center justify-between text-slate-600 pb-2 mb-2 border-b border-slate-200">
+<span class="font-semibold text-slate-700">PLUGINS DEPLOYED</span>
+<span class="text-emerald-700 font-bold">4 CONNECTORS SYNCED</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center text-[11px]">
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">VS Code</div>
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">JetBrains</div>
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">Figma</div>
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">Google Docs</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+<a class="inline-flex items-center gap-2 text-sky-700 font-headline-sm text-[14px] font-bold hover:text-sky-900" data-path="human-authorship-tracker" href="#">
+<span>Explore Provenance Suite</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<span class="font-label-code text-label-code text-slate-400">SDK v4.12 // REST &amp; gRPC</span>
+</div>
+</div>
+<!-- Tool B: AI Code License Contamination Scanner -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+<div class="absolute -right-16 -top-16 w-56 h-56 bg-emerald-50 rounded-full blur-3xl pointer-events-none"></div>
+<div>
+<div class="flex items-center justify-between mb-4">
+<span class="px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-800 font-label-caps text-label-caps uppercase font-bold">Tool B • Software IP Defense</span>
+<span class="font-label-code text-label-code text-sky-700 flex items-center gap-1 font-semibold">
+<span class="material-symbols-outlined text-[14px]">bolt</span> Live v1.0
+              </span>
+</div>
+<h3 class="font-headline-lg text-headline-lg text-slate-900 font-bold mb-3">AI Code License Contamination Scanner</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Deep AST-level static analysis for AI-generated code across GitHub Copilot, Cursor, Claude Code, and ChatGPT to defend commercial closed-source IP.
+            </p>
+<!-- Feature Bullet List -->
+<div class="space-y-4 mb-8">
+<div class="flex items-start gap-3">
+<div class="p-1 rounded bg-sky-50 text-sky-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] block">travel_explore</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold">Reciprocal Copyleft Isolation</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Instant detection of GPL, AGPL, SSPL, and copyleft snippet leakage before merging into production repositories.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-1 rounded bg-sky-50 text-sky-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] block">alt_route</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold">Automated CI/CD Quality Gates</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Blocks tainted pull requests on GitHub Actions, GitLab CI, and Bitbucket with automated audit warnings.</p>
+</div>
+</div>
+<div class="flex items-start gap-3">
+<div class="p-1 rounded bg-sky-50 text-sky-700 shrink-0 mt-0.5">
+<span class="material-symbols-outlined text-[18px] block">cleaning_services</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold">Clean-Room Refactoring Generator</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Provides non-infringing synthetic replacements that accomplish identical functional behavior without viral licensing encumbrances.</p>
+</div>
+</div>
+</div>
+<!-- Visual Context Box -->
+<div class="bg-slate-50 border border-slate-200 rounded-lg p-4 font-label-code text-label-code">
+<div class="flex items-center justify-between text-slate-600 pb-2 mb-2 border-b border-slate-200">
+<span class="font-semibold text-slate-700">RADAR COVERAGE</span>
+<span class="text-sky-700 font-bold">COPILOT / CLAUDE / CURSOR</span>
+</div>
+<div class="grid grid-cols-4 gap-2 text-center text-[11px]">
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">GPLv2/v3</div>
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">AGPL-3.0</div>
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">SSPL 1.0</div>
+<div class="bg-white border border-slate-200 p-2 rounded text-slate-800 font-semibold shadow-2xs">EUPL 1.2</div>
+</div>
+</div>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100 flex items-center justify-between">
+<a class="inline-flex items-center gap-2 text-sky-700 font-headline-sm text-[14px] font-bold hover:text-sky-900" data-path="code-license-scanner" href="#">
+<span>Inspect License Scanner</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<span class="font-label-code text-label-code text-slate-400">AST Engine v2.8 // Realtime</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 3: INTERACTIVE VISUAL DEMONSTRATION / LIVE WORKFLOW -->
+<section class="w-full py-24 bg-slate-50 border-y border-slate-200/80">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="text-center max-w-2xl mx-auto mb-16">
+<span class="font-label-caps text-label-caps text-sky-700 font-bold uppercase tracking-wider">Automated Provenance Pipeline</span>
+<h2 class="font-headline-xl text-headline-xl text-slate-900 font-bold tracking-tight mt-2 mb-4">
+          How AIthentica Protects IP in Real Time
+        </h2>
+<p class="font-body-md text-body-md text-slate-600">
+          From the first prompt to federal registration filings, experience an unbreachable audit trail.
+        </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+<!-- Step 1 -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-headline-sm text-headline-sm text-sky-700 font-extrabold">01</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-label-code text-label-code text-slate-700 font-semibold">INGEST</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold mb-2">Ingest &amp; Monitor</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Connect your GitHub, GitLab, Figma, Google Workspace, or local IDE in seconds with read-only cryptographic agents.
+            </p>
+<div class="bg-slate-50 border border-slate-200/70 rounded p-3 font-label-code text-label-code text-slate-600 space-y-2">
+<div class="flex items-center gap-2 text-slate-900 font-medium">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>GitHub Org Connected (124 Repos)</span>
+</div>
+<div class="flex items-center gap-2 text-slate-700">
+<span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+<span>Figma Enterprise Webhook Live</span>
+</div>
+</div>
+</div>
+<div class="mt-8 font-label-code text-[11px] text-slate-400 font-semibold">LATENCY: &lt;14MS BUFFER</div>
+</div>
+<!-- Step 2 -->
+<div class="bg-white rounded-xl border-2 border-emerald-500/80 p-6 flex flex-col justify-between shadow-md relative">
+<div class="absolute -top-3 right-6 px-2.5 py-0.5 rounded-full bg-emerald-50 border border-emerald-300 font-label-code text-[10px] text-emerald-800 font-bold uppercase">Active Engine</div>
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-headline-sm text-headline-sm text-emerald-700 font-extrabold">02</span>
+<span class="px-2.5 py-1 rounded bg-emerald-50 border border-emerald-200 font-label-code text-label-code text-emerald-800 font-bold">TELEMETRY</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold mb-2">Continuous Telemetry</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Micro-heuristics parse human keystrokes, prompt iterations, and model synthesis blocks, flagging copyleft risks concurrently.
+            </p>
+<div class="bg-emerald-50/50 border border-emerald-100 rounded p-3 font-label-code text-label-code text-slate-700 space-y-2">
+<div class="flex items-center justify-between text-slate-900">
+<span class="font-medium">Human Conception:</span>
+<span class="text-emerald-700 font-bold">Passed (82%)</span>
+</div>
+<div class="flex items-center justify-between text-slate-900">
+<span class="font-medium">GPL Reciprocal Check:</span>
+<span class="text-emerald-700 font-bold">Clean</span>
+</div>
+</div>
+</div>
+<div class="mt-8 font-label-code text-[11px] text-emerald-700 font-bold">REAL-TIME ATTESTATION ENGINE</div>
+</div>
+<!-- Step 3 -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-6 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="flex items-center justify-between mb-6">
+<span class="font-headline-sm text-headline-sm text-sky-700 font-extrabold">03</span>
+<span class="px-2.5 py-1 rounded bg-slate-100 border border-slate-200 font-label-code text-label-code text-sky-800 font-semibold">DEFENSE</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-slate-900 font-bold mb-2">USCO Legal Defense Pack</h3>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Export cryptographically signed legal proof in PDF or JSON-LD format, ready for federal copyright registration or litigation defense.
+            </p>
+<div class="bg-slate-50 border border-slate-200/70 rounded p-3 font-label-code text-label-code text-slate-600 space-y-2">
+<div class="flex items-center gap-2 text-slate-900 font-medium">
+<span class="material-symbols-outlined text-sky-700 text-[16px]">verified</span>
+<span>SHA-256 Merkle Certification</span>
+</div>
+<div class="flex items-center gap-2 text-slate-900 font-medium">
+<span class="material-symbols-outlined text-sky-700 text-[16px]">picture_as_pdf</span>
+<span>USCO Filing Packet v2025.1</span>
+</div>
+</div>
+</div>
+<div class="mt-8 font-label-code text-[11px] text-slate-400 font-semibold">EXPORT FORMAT: PDF, JSON-LD, C2PA</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: ROLE-BASED VALUE PROPOSITION -->
+<section class="w-full py-24 bg-white">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div>
+<span class="font-label-caps text-label-caps text-emerald-700 font-bold uppercase tracking-wider">Custom Tailored Workflows</span>
+<h2 class="font-headline-xl text-headline-xl text-slate-900 font-bold tracking-tight mt-2 max-w-xl">
+            Built for Every Stakeholder in the Enterprise AI Era
+          </h2>
+</div>
+<p class="font-body-md text-body-md text-slate-600 max-w-md">
+          Align legal compliance, engineering velocity, and creative protection with unified provenance evidence.
+        </p>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Card 1: Legal -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="w-10 h-10 rounded-lg bg-sky-50 border border-sky-100 flex items-center justify-center text-sky-700 mb-6">
+<span class="material-symbols-outlined text-[24px]">balance</span>
+</div>
+<h3 class="font-headline-lg text-[22px] text-slate-900 font-bold mb-2">General Counsel &amp; IP Officers</h3>
+<div class="font-label-caps text-label-caps text-sky-700 font-bold uppercase mb-4">Statutory &amp; Litigation Defense</div>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Establish bulletproof defense against copyright infringement claims and ensure all registered assets withstand USCO scrutiny under 2025 guidelines.
+            </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-slate-700">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Rebuttal-ready human conception proof</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Indemnity risk assessments per model</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> M&amp;A IP due diligence verification reports</li>
+</ul>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100">
+<a class="font-label-code text-label-code text-sky-700 font-semibold flex items-center gap-1 hover:text-sky-900" data-path="solutions-legal-compliance" href="#">
+<span>Read Legal Whitepaper</span> <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 2: CTO -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="w-10 h-10 rounded-lg bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-700 mb-6">
+<span class="material-symbols-outlined text-[24px]">terminal</span>
+</div>
+<h3 class="font-headline-lg text-[22px] text-slate-900 font-bold mb-2">VP of Engineering &amp; CTOs</h3>
+<div class="font-label-caps text-label-caps text-emerald-700 font-bold uppercase mb-4">Codebase License Governance</div>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Enable developers to leverage Copilot, Cursor, and Claude with zero danger of tainting proprietary IP with viral copyleft licenses.
+            </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-slate-700">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Invisible background IDE instrumentation</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Strict CI/CD PR gating &amp; refactor suggestions</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Full dependency &amp; synthetic provenance tree</li>
+</ul>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100">
+<a class="font-label-code text-label-code text-emerald-700 font-semibold flex items-center gap-1 hover:text-emerald-900" data-path="solutions-engineering" href="#">
+<span>Explore Developer Architecture</span> <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Card 3: Creative -->
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 flex flex-col justify-between shadow-sm hover:shadow-md transition-shadow">
+<div>
+<div class="w-10 h-10 rounded-lg bg-indigo-50 border border-indigo-100 flex items-center justify-center text-indigo-700 mb-6">
+<span class="material-symbols-outlined text-[24px]">draw</span>
+</div>
+<h3 class="font-headline-lg text-[22px] text-slate-900 font-bold mb-2">Design Directors &amp; Brand Leads</h3>
+<div class="font-label-caps text-label-caps text-indigo-700 font-bold uppercase mb-4">Brand Asset Eligibility</div>
+<p class="font-body-md text-body-md text-slate-600 mb-6 leading-relaxed">
+              Preserve full trademark and copyright eligibility over marketing, branding, and product designs while expediting iteration with generative tooling.
+            </p>
+<ul class="space-y-3 font-body-sm text-body-sm text-slate-700">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Figma &amp; Adobe layer delta provenance</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> Human aesthetic steering validation</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-emerald-600 text-[16px]">check</span> C2PA tamper-proof media watermarking</li>
+</ul>
+</div>
+<div class="mt-8 pt-4 border-t border-slate-100">
+<a class="font-label-code text-label-code text-indigo-700 font-semibold flex items-center gap-1 hover:text-indigo-900" data-path="solutions-creative-design" href="#">
+<span>View Creative Workflows</span> <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: ENTERPRISE ASSURANCE & TRUST BANNER -->
+<section class="w-full py-16 bg-slate-50 border-y border-slate-200/80">
+<div class="max-w-7xl mx-auto px-6 lg:px-12">
+<div class="bg-white rounded-xl border border-slate-200/80 p-8 lg:p-12 shadow-sm">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-4">
+<span class="font-label-caps text-label-caps text-emerald-700 font-bold uppercase tracking-wider">Uncompromising Security</span>
+<h3 class="font-headline-lg text-headline-lg text-slate-900 font-bold tracking-tight mt-1 mb-3">
+              Zero Model Training. Air-Gapped Precision.
+            </h3>
+<p class="font-body-sm text-body-sm text-slate-600 leading-relaxed">
+              Your source code and creative prompts remain strictly confidential. AIthentica operates as a zero-knowledge attestation layer.
+            </p>
+</div>
+<div class="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+<div class="bg-slate-50 border border-slate-200/70 p-5 rounded-lg">
+<div class="w-8 h-8 rounded bg-emerald-100/70 flex items-center justify-center text-emerald-800 mb-3">
+<span class="material-symbols-outlined text-[20px]">shield_person</span>
+</div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold mb-1">Zero Training Clause</h4>
+<p class="font-body-sm text-body-sm text-slate-600">We never store plaintext code or train public or private models on your telemetry.</p>
+</div>
+<div class="bg-slate-50 border border-slate-200/70 p-5 rounded-lg">
+<div class="w-8 h-8 rounded bg-sky-100/70 flex items-center justify-center text-sky-800 mb-3">
+<span class="material-symbols-outlined text-[20px]">lock</span>
+</div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold mb-1">SOC 2 Type II Certified</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Independently audited controls with optional self-hosted on-prem or air-gapped VPC clusters.</p>
+</div>
+<div class="bg-slate-50 border border-slate-200/70 p-5 rounded-lg">
+<div class="w-8 h-8 rounded bg-indigo-100/70 flex items-center justify-center text-indigo-800 mb-3">
+<span class="material-symbols-outlined text-[20px]">vpn_key</span>
+</div>
+<h4 class="font-headline-sm text-[15px] text-slate-900 font-bold mb-1">Dual-Signed Merkle Tree</h4>
+<p class="font-body-sm text-body-sm text-slate-600">Cryptographic hash verification offline and verifiable on open standards (C2PA / W3C).</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 6: STRONG FINAL CTA SECTION -->
+<section class="w-full py-24 bg-white relative overflow-hidden">
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-sky-50/50 to-transparent pointer-events-none"></div>
+<div class="max-w-4xl mx-auto px-6 text-center relative z-10">
+<div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-800 font-label-caps text-label-caps uppercase font-bold mb-6">
+<span class="material-symbols-outlined text-[14px]">security</span> Secure Your Codebase Today
+      </div>
+<h2 class="font-display-lg text-[34px] sm:text-display-lg text-slate-900 font-bold tracking-tight mb-6">
+        Don't build your core business on unprotectable, high-liability code and assets.
+      </h2>
+<p class="font-body-lg text-body-lg text-slate-600 max-w-2xl mx-auto mb-10 leading-relaxed">
+        Run an immediate, non-invasive scan across your key GitHub repositories or Figma team spaces to verify human authorship thresholds and identify copyleft leaks.
+      </p>
+<!-- Fast Interactive Email / Repo Scan Input Form -->
+<div class="max-w-lg mx-auto bg-slate-100 border border-slate-200/80 p-2 rounded-xl shadow-md mb-4">
+<form class="flex flex-col sm:flex-row gap-2" onsubmit="event.preventDefault(); document.getElementById('scan-status-msg').classList.remove('hidden');">
+<input class="flex-1 bg-white border border-slate-200 text-slate-900 px-4 py-3 rounded-lg font-body-md text-body-md placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-sky-500" placeholder="Enter work email (e.g. alex@enterprise.com)" required="" type="email"/>
+<button class="px-6 py-3 rounded-lg bg-sky-600 hover:bg-sky-700 text-white font-headline-sm text-[14px] font-semibold transition-all whitespace-nowrap shadow-sm" type="submit">
+            Audit My Codebase Free
+          </button>
+</form>
+</div>
+<!-- Feedback notice on submit -->
+<div class="hidden font-label-code text-label-code text-emerald-700 font-semibold mb-4" id="scan-status-msg">
+        ✓ Audit daemon dispatched. Verification link sent to enterprise inbox.
+      </div>
+<div class="flex flex-wrap items-center justify-center gap-6 font-label-code text-label-code text-slate-500">
+<a class="text-sky-700 font-medium hover:underline flex items-center gap-1" data-path="documentation" href="#">
+<span class="material-symbols-outlined text-[14px]">download</span> Download Sample USCO Defense Packet (.PDF)
+        </a>
+<span>•</span>
+<span>Free tier includes up to 5 repos &amp; 10 team seats</span>
+</div>
+</div>
+</section>
+</div></main><footer class="w-full bg-slate-50 border-t border-slate-200 py-space-xl"><div class="max-w-7xl mx-auto px-6 lg:px-12"><div class="grid grid-cols-1 md:grid-cols-5 gap-space-xl mb-space-xl"><div class="md:col-span-2 flex flex-col gap-space-md"><div class="flex items-center gap-3"><img alt="AIthentica Logo" class="h-7 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1VPhdPG7eQ6Oz4_z3WEoNMo39ILR_s9udAGpMpKGJiUjVahgSbvwzR737lr6t8dHhDmtK37f-3tI65wgAVmmLe4ifm3VHU-2Rs5GfTiuHQV8je57mKAZbNl74SCGKIgAQZljih5sA9mcI8zSJibpZUg34IoQPHrVHQqCfmFlwoNKYNWXGPFObbJUIq_t6BWAwLsfVPiJkjPhEwT4vNMb-VLwCC-uXcK8tilAyN_ytdO5Q-yYQdLaTxDiqY"/><span class="font-headline-sm text-headline-sm text-slate-950 tracking-tight font-bold">AIthentica</span></div><p class="font-body-sm text-body-sm text-slate-600 max-w-sm leading-relaxed">Forensic AI provenance, cryptographic human authorship attestation, and enterprise intellectual property protection systems.</p><div class="flex flex-wrap gap-2 pt-2"><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-slate-200 text-slate-800 font-label-code text-label-code shadow-2xs font-medium"><span class="material-symbols-outlined text-emerald-600 text-[14px]">verified</span>SOC 2 Type II</span><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-slate-200 text-slate-800 font-label-code text-label-code shadow-2xs font-medium"><span class="material-symbols-outlined text-emerald-600 text-[14px]">lock</span>ISO 27001</span><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-slate-200 text-slate-800 font-label-code text-label-code shadow-2xs font-medium"><span class="material-symbols-outlined text-sky-700 text-[14px]">gavel</span>USCO Guidelines</span><span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded bg-white border border-slate-200 text-slate-800 font-label-code text-label-code shadow-2xs font-medium"><span class="material-symbols-outlined text-indigo-600 text-[14px]">policy</span>EU AI Act Ready</span></div></div><div><h4 class="font-label-caps text-label-caps text-slate-950 font-bold uppercase mb-space-md">Platform</h4><ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-slate-600"><li><a class="hover:text-slate-950 transition-colors" data-path="human-authorship-tracker" href="#">Authorship Tracker</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="code-license-scanner" href="#">Code License Scanner</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="provenance-ledger" href="#">Provenance Ledger</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="repository-scan" href="#">Repo Static Scanner</a></li></ul></div><div><h4 class="font-label-caps text-label-caps text-slate-950 font-bold uppercase mb-space-md">Risk Assessment</h4><ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-slate-600"><li><a class="hover:text-slate-950 transition-colors" data-path="training-liability" href="#">Training Data Liability</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="usco-registration" href="#">USCO Copyright Filing</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="black-box-risk" href="#">Model Black Box Risk</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="usco-advisory" href="#">Regulatory Advisories</a></li></ul></div><div><h4 class="font-label-caps text-label-caps text-slate-950 font-bold uppercase mb-space-md">Compliance &amp; Docs</h4><ul class="flex flex-col gap-space-sm font-body-sm text-body-sm text-slate-600"><li><a class="hover:text-slate-950 transition-colors" data-path="documentation" href="#">API Documentation</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="documentation" href="#">Forensic Audit SDK</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="documentation" href="#">Legal Whitepaper</a></li><li><a class="hover:text-slate-950 transition-colors" data-path="request-access" href="#">Enterprise Security Portal</a></li></ul></div></div><div class="pt-space-lg border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-space-md font-body-sm text-body-sm text-slate-500"><p class="font-label-code text-label-code">© 2025 AIthentica Systems Inc. Cryptographic Evidence Layer v4.12. All rights reserved.</p><div class="flex items-center gap-space-lg font-label-code text-label-code"><span>VERIFIED SHA256: 9e4f..8b12</span><a class="hover:text-slate-900 transition-colors" href="#">Privacy Framework</a><a class="hover:text-slate-900 transition-colors" href="#">Terms of Certification</a></div></div></div></footer></body></html>
