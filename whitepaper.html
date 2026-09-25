@@ -1,0 +1,728 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Legal Whitepaper: Defending AI-Assisted Copyright | AIthentica</title>
+        <meta name="description" content="A whitepaper for General Counsel and IP Officers on establishing human authorship evidence for AI-assisted works under USCO guidance." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="assets/site.css" />
+    </head>
+    <body>
+        <!-- ============ Header ============ -->
+        <header class="site-header">
+            <div class="notice-bar">
+                <div class="notice-inner">
+                    <div class="notice-left">
+                        <span class="pulse-dot"></span>
+                        <span class="t-caps notice-label"
+                            >REGULATORY NOTICE</span
+                        ><span class="t-body-sm notice-text"
+                            >US Copyright Office issues 2025 AI Authorship
+                            Guidance on human intellectual conception
+                            requirements.</span
+                        >
+                    </div>
+                    <a
+                        class="t-mono notice-link"
+                        href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <span>VIEW COMPLIANCE BRIEF</span
+                        ><span class="material-symbols-outlined" style="font-size: 14px"
+                            >arrow_forward</span
+                        >
+                    </a>
+                </div>
+            </div>
+            <div class="nav-row">
+                <a class="brand" href="index.html">
+                    <img
+                        alt="AIthentica Logo"
+                        class="brand-logo"
+                        src="/img/logo.png"
+                    />
+                    <div class="brand-col">
+                        <span class="brand-name">AIthentica</span>
+                        <span class="brand-sub">Enterprise IP Provenance</span>
+                    </div>
+                </a>
+                <nav class="main-nav" aria-label="Primary">
+                    <a class="nav-link" href="index.html#problems">The Problem</a>
+                    <div class="nav-item">
+                        <button class="nav-btn" type="button">
+                            <span>Solutions</span>
+                            <span class="material-symbols-outlined"
+                                >expand_more</span
+                            >
+                        </button>
+                        <div class="dropdown">
+                            <a href="index.html#solutions"
+                                >Creative Process Provenance Suite</a
+                            ><a href="index.html#solutions"
+                                >AI Code License Contamination Scanner</a
+                            >
+                        </div>
+                    </div>
+                    <a class="nav-link" href="index.html#audience">Who It's For</a>
+                </nav>
+                <div class="nav-actions">
+                    <a class="btn-ghost" href="index.html#subscribe"
+                        >Scan Your Repository</a
+                    ><a class="btn-primary-nav" href="index.html#subscribe"
+                        >Request Access / Demo</a
+                </div>
+            </div>
+        </header>
+
+        <main>
+        <style>
+            .doc-hero {
+                position: relative;
+                padding-top: calc(var(--header-h) + 4rem);
+                padding-bottom: 3.5rem;
+                border-bottom: 1px solid var(--slate-200);
+                overflow: hidden;
+            }
+
+            .doc-hero::before {
+                content: "";
+                position: absolute;
+                top: -160px;
+                right: -120px;
+                width: 520px;
+                height: 520px;
+                border-radius: 9999px;
+                background: radial-gradient(
+                    circle,
+                    rgba(14, 165, 233, 0.08) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+
+            .doc-body {
+                padding-top: 4rem;
+                padding-bottom: 5rem;
+            }
+
+            .doc-col {
+                max-width: 46rem;
+            }
+
+            .doc-section {
+                margin-bottom: 3.5rem;
+            }
+
+            .doc-section h2 {
+                font-family: var(--font-display);
+                font-size: 28px;
+                line-height: 36px;
+                letter-spacing: -0.015em;
+                font-weight: 700;
+                color: var(--slate-900);
+                margin-bottom: 1rem;
+            }
+
+            .doc-section h3 {
+                font-family: var(--font-display);
+                font-size: 18px;
+                line-height: 26px;
+                letter-spacing: -0.01em;
+                font-weight: 600;
+                color: var(--slate-900);
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .doc-section p {
+                font-size: 16px;
+                line-height: 28px;
+                color: var(--slate-600);
+                margin-bottom: 1rem;
+            }
+
+            .doc-section ul {
+                list-style: none;
+                margin: 1rem 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .doc-section ul li {
+                position: relative;
+                padding-left: 1.75rem;
+                font-size: 16px;
+                line-height: 28px;
+                color: var(--slate-600);
+            }
+
+            .doc-section ul li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 14px;
+                height: 14px;
+                border-radius: 9999px;
+                background: var(--emerald-50);
+                border: 1px solid var(--emerald-200);
+            }
+
+            .doc-section ul li::after {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 13px;
+                width: 6px;
+                height: 3px;
+                border-left: 2px solid var(--emerald-600);
+                border-bottom: 2px solid var(--emerald-600);
+                transform: rotate(-45deg);
+            }
+
+            .doc-callout {
+                border-radius: 8px;
+                padding: 1.5rem;
+                margin: 2rem 0;
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .doc-callout-sky {
+                background: var(--sky-50);
+                border: 1px solid var(--sky-200);
+            }
+
+            .doc-callout-emerald {
+                background: var(--emerald-50);
+                border: 1px solid var(--emerald-200);
+            }
+
+            .doc-callout-indigo {
+                background: var(--indigo-50);
+                border: 1px solid var(--indigo-200);
+            }
+
+            .doc-callout p {
+                margin-bottom: 0;
+                font-size: 15px;
+                line-height: 24px;
+            }
+
+            .doc-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+                border-top: 1px solid var(--slate-200);
+            }
+
+            .doc-meta-item {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .doc-meta-label {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                line-height: 14px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: var(--slate-500);
+            }
+
+            .doc-meta-value {
+                font-size: 14px;
+                line-height: 20px;
+                color: var(--slate-900);
+                font-weight: 500;
+            }
+
+            .doc-cta {
+                margin-top: 3rem;
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+        </style>
+
+            <!-- ============ Legal Whitepaper ============ -->
+            <section class="doc-hero">
+                <div class="wrap">
+                    <div class="hero-badge" style="margin-bottom: 1.5rem">
+                        <span class="dot"></span>
+                        <span class="t-caps" style="color: var(--sky-700)"
+                            >Whitepaper &middot; Legal</span
+                        >
+                    </div>
+                    <h1 class="t-display" style="max-width: 52rem">
+                        The Authorship Gap: Defending AI-Assisted Work When the
+                        Copyright Office Asks Who Made It
+                    </h1>
+                    <p class="t-body-lg hero-sub" style="margin-top: 1.5rem; max-width: 52rem">
+                        A practical framework for General Counsel and IP
+                        Officers to build court-ready evidence of human
+                        intellectual conception in the post-2025 USCO guidance
+                        era.
+                    </p>
+                </div>
+            </section>
+
+            <section class="doc-body">
+                <div class="wrap doc-col">
+                    <div class="doc-meta">
+                        <div class="doc-meta-item">
+                            <span class="doc-meta-label">Audience</span>
+                            <span class="doc-meta-value"
+                                >General Counsel &amp; IP Officers</span
+                            >
+                        </div>
+                        <div class="doc-meta-item">
+                            <span class="doc-meta-label">Reading Time</span>
+                            <span class="doc-meta-value">18 minutes</span>
+                        </div>
+                        <div class="doc-meta-item">
+                            <span class="doc-meta-label">Classification</span>
+                            <span class="doc-meta-value"
+                                >Public &mdash; Free Distribution</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>Abstract</h2>
+                        <p>
+                            The US Copyright Office's 2025 guidance on AI
+                            authorship resolved one question and created three
+                            more. It confirmed that human intellectual
+                            conception remains the legal center of gravity for
+                            copyright in AI-assisted works. It did not define
+                            what quantum of human contribution suffices, how to
+                            prove it after the fact, or how courts will weigh
+                            evidence generated by the same tooling ecosystem
+                            that produced the work. This whitepaper proposes an
+                            evidence framework &mdash; the
+                            <strong>Conception Chain</strong> &mdash; that maps
+                            each element of a copyright claim to specific,
+                            tamper-evident artifacts an enterprise can generate
+                            continuously rather than reconstruct under
+                            litigation pressure.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>1. The Regulatory Landscape</h2>
+                        <p>
+                            Three developments define the current position of
+                            any company shipping AI-assisted creative or
+                            software output:
+                        </p>
+                        <ul>
+                            <li><strong>The Thaler line of cases.</strong> Courts have consistently held that copyright protects only human authorship. Works produced without sufficient human contribution are public domain upon creation &mdash; not merely unregistrable, but unownable.</li>
+                            <li><strong>USCO 2025 AI Authorship Guidance.</strong> The Office now expects registrants to disclose AI-generated portions and to be prepared to demonstrate the human intellectual conception behind protected elements. Disclosure is a filing requirement; proof of conception is a litigation requirement. Most companies have systems for neither.</li>
+                            <li><strong>The training-data counterclaim wave.</strong> As plaintiffs' bars build cases against generative model providers, downstream users face discovery requests about their own AI tooling: which models touched the work, what prompts were used, and what human edits followed. A company that cannot answer these questions has a problem before it even reaches its own copyright claim.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>2. Why Forensic Reconstruction Fails</h2>
+                        <p>
+                            The default enterprise response to an authorship
+                            challenge is reconstruction: pull git history,
+                            interview creators, export DMS version histories,
+                            and assemble a narrative. In our experience with
+                            diligence engagements, this approach fails for four
+                            structural reasons.
+                        </p>
+                        <h3>2.1 The Timestamp Problem</h3>
+                        <p>
+                            Filesystem and VCS timestamps are mutable by the
+                            very people whose credibility is at issue. A
+                            defense built on self-attested timestamps invites
+                            exactly the challenge it should prevent. Evidence
+                            requires an external, tamper-evident time source &mdash;
+                            not a local clock.
+                        </p>
+                        <h3>2.2 The Selection Problem</h3>
+                        <p>
+                            Reconstruction is inherently selective: teams
+                            preserve what they believe matters. Adversaries
+                            exploit the gaps. Continuous capture eliminates
+                            selection entirely &mdash; every iteration exists,
+                            including the ones the team would not have chosen
+                            to save.
+                        </p>
+                        <h3>2.3 The Attribution Problem</h3>
+                        <p>
+                            In AI-assisted workflows, a single artifact may pass
+                            through a model, a prompter, an editor, and a
+                            reviewer. Reconstruction typically captures the
+                            final state, not the human decision points &mdash;
+                            which is precisely where conception lives. The law
+                            asks what a human conceived, not what a pipeline
+                            output.
+                        </p>
+                        <h3>2.4 The Scale Problem</h3>
+                        <p>
+                            Modern products ship thousands of creative and code
+                            artifacts per quarter. No legal team can
+                            reconstruct hundreds of works after a claim
+                            arrives. Evidence must be generated as a byproduct
+                            of normal work, at the speed of the work itself.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>3. The Conception Chain Framework</h2>
+                        <p>
+                            The Conception Chain decomposes an authorship
+                            defense into four evidence layers, each generated
+                            automatically and cryptographically linked to the
+                            next:
+                        </p>
+                        <h3>Layer 1 &mdash; Origin Attestation</h3>
+                        <p>
+                            When a human begins work on an artifact &mdash;
+                            opens a canvas, writes the first commit, drafts the
+                            prompt that seeds a generation &mdash; the tooling
+                            records a signed origin event: who, when (via an
+                            external time source), on what starting material.
+                            This is the seed of the chain and the direct answer
+                            to &ldquo;where did this come from?&rdquo;
+                        </p>
+                        <h3>Layer 2 &mdash; Conception Events</h3>
+                        <p>
+                            Human decision points are captured as they happen:
+                            manual edits, rejected generations, prompt
+                            revisions, explicit approvals. Each event is
+                            hashed and signed with a key held by the creator's
+                            organization. The layer distinguishes human
+                            contribution from model output &mdash; the exact
+                            distinction USCO disclosure requirements demand.
+                        </p>
+                        <h3>Layer 3 &mdash; Contamination Screening</h3>
+                        <p>
+                            For code and trained-adjacent assets, each artifact
+                            is screened against open-source license corpora at
+                            creation time. Findings are recorded in the chain,
+                            so a later auditor can see not only what licenses
+                            are present but when they entered and whether they
+                            were remediated.
+                        </p>
+                        <h3>Layer 4 &mdash; Publication Seal</h3>
+                        <p>
+                            At release, the full chain is sealed: a merkle root
+                            over all prior events, signed and timestamped,
+                            producing a single verifiable evidence packet. The
+                            packet is self-contained &mdash; anyone with it can
+                            verify every link without access to the originating
+                            systems.
+                        </p>
+                        <div class="doc-callout doc-callout-sky">
+                            <span class="material-symbols-outlined" style="font-size: 20px; color: var(--sky-700)">hub</span>
+                            <p>
+                                <strong>Design principle:</strong> every layer
+                                is append-only and verifiable offline. If a
+                                company's infrastructure disappears tomorrow,
+                                its evidence packets remain admissible
+                                artifacts in anyone's hands &mdash; including a
+                                court's.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>4. Filing Strategy Under the 2025 Guidance</h2>
+                        <ul>
+                            <li><strong>Disclosure from the chain.</strong> USCO AI-portion disclosures can be generated directly from Layer 2 records, ensuring the filing matches the evidence rather than a summary of memory.</li>
+                            <li><strong>Work-for-hire alignment.</strong> Conception events carry identity and employment context, supporting work-for-hire and assignment arguments for works created by contractors using company AI tooling.</li>
+                            <li><strong>International posture.</strong> The same chain supports UK IPO and EUIPO filings; the EU AI Act's transparency obligations for AI-generated content map cleanly onto Layer 2 and Layer 4 records.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>5. Litigation Posture</h2>
+                        <p>
+                            When a claim arrives, the Conception Chain changes
+                            the shape of the proceeding in three ways:
+                        </p>
+                        <ul>
+                            <li><strong>Summary judgment surface.</strong> A sealed, externally timestamped chain is difficult to reduce to a fact question. Defenses anchored in verifiable records are better positioned for dispositive motion than defenses anchored in witness recollection.</li>
+                            <li><strong>Discovery control.</strong> The chain answers the standard AI-tooling discovery requests (models used, prompts, human edits) from a fixed record, reducing depositions of individual creators &mdash; and the credibility risks that carry.</li>
+                            <li><strong>Damages narrative.</strong> For works where ownership is established, the chain documents commercial exploitation timeline from first conception, supporting full damages rather than a contested slice.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>6. Implementation Roadmap</h2>
+                        <p>
+                            Enterprises we advise typically deploy in three
+                            phases over one quarter:
+                        </p>
+                        <ul>
+                            <li><strong>Weeks 1&ndash;2 &mdash; Capture.</strong> Integrate origin and conception capture into existing creative and code tooling. No workflow changes required of creators; evidence is a byproduct.</li>
+                            <li><strong>Weeks 3&ndash;4 &mdash; Screen.</strong> Enable contamination screening in CI for all repositories and in the asset pipeline for creative output. Baseline findings become the remediation backlog.</li>
+                            <li><strong>Weeks 5&ndash;8 &mdash; Seal and File.</strong> Produce publication seals for the current release train, generate USCO disclosures for pending filings, and archive evidence packets with counsel of record.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>7. Open Questions We Are Tracking</h2>
+                        <ul>
+                            <li>The sufficiency threshold: how much human contribution will courts require for heavily AI-assisted works? The chain's value grows as this question sharpens &mdash; granular conception records are the only way to argue the margin.</li>
+                            <li>Evidentiary standards for tool-generated evidence: expect Daubert challenges to automated capture. Our position is that cryptographic signing plus external time sources place such evidence on firmer footing than human testimony about digital events.</li>
+                            <li>International divergence: UK, EU, and US positions are converging on human-conception tests but diverging on disclosure mechanics. Multi-jurisdiction filers should keep chains jurisdiction-tagged from day one.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>8. About AIthentica</h2>
+                        <p>
+                            AIthentica builds the evidence infrastructure
+                            described in this whitepaper: the Creative Process
+                            Provenance Suite for continuous conception capture,
+                            and the AI Code License Contamination Scanner for
+                            license exposure screening. The platform is SOC 2
+                            Type II audited and ISO 27001 certified, with
+                            customer-held signing keys as the default posture.
+                        </p>
+                    </div>
+
+                    <div class="doc-callout doc-callout-emerald">
+                        <span class="material-symbols-outlined" style="font-size: 20px; color: var(--emerald-700)">description</span>
+                        <p>
+                            <strong>Sample USCO Defense Packet.</strong>
+                            Enterprise readers can request a redacted sample
+                            evidence packet &mdash; origin attestation through
+                            publication seal &mdash; to evaluate the format
+                            with your filing team before committing.
+                        </p>
+                    </div>
+
+                    <div class="doc-cta">
+                        <a class="btn-hero-primary" href="index.html#subscribe">
+                            <span class="material-symbols-outlined" style="font-size: 18px">verified_user</span>
+                            <span>Request Access / Demo</span>
+                        </a>
+                        <button type="button" class="btn-hero-secondary" id="docContactBtn">
+                            <span class="material-symbols-outlined" style="font-size: 18px; color: var(--slate-500)">mail</span>
+                            <span>Request Sample Packet</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============ Footer ============ -->
+        <footer class="site-footer">
+            <div class="wrap">
+                <div class="footer-grid">
+                    <div class="footer-brand-col">
+                        <div class="footer-brand">
+                            <img
+                                alt="AIthentica Logo"
+                                class="footer-logo"
+                                src="/img/logo.png"
+                            />
+                            <span class="brand-name">AIthentica</span>
+                        </div>
+                        <p class="t-body-sm footer-desc">
+                            Forensic AI provenance, cryptographic human
+                            authorship attestation, and enterprise intellectual
+                            property protection systems.
+                        </p>
+                        <div class="footer-badges">
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--emerald-600)"
+                                    >verified</span
+                                >
+                                SOC 2 Type II
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--emerald-600)"
+                                    >lock</span
+                                >
+                                ISO 27001
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--sky-700)"
+                                    >gavel</span
+                                >
+                                USCO Guidelines
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--indigo-600)"
+                                    >policy</span
+                                >
+                                EU AI Act Ready
+                            </span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html#solutions"
+                                    >Creative Process Provenance Suite</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#solutions"
+                                    >AI Code License Contamination Scanner</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Risk Assessment</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html#problems"
+                                    >Training Data Liability</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#problems"
+                                    >USCO Copyright Filing</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#problems">Model Black Box Risk</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Get Started</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html#subscribe"
+                                    >Request Access / Demo</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#subscribe"
+                                    >Scan Your Repository</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="t-mono">
+                        © 2025 AIthentica Systems Inc. Cryptographic Evidence
+                        Layer v4.12. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <button
+                            type="button"
+                            class="footer-contact-btn"
+                            id="contactOpenBtn"
+                        >
+                            Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ============ Contact Modal (form lives in reusable iframe doc) ============ -->
+        <div class="modal-overlay" id="contactModal" hidden>
+            <div
+                class="modal-dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="contactModalTitle"
+            >
+                <div class="modal-head">
+                    <h3 id="contactModalTitle" class="t-headline-sm">
+                        Contact AIthentica
+                    </h3>
+                    <button
+                        type="button"
+                        class="modal-close"
+                        id="contactCloseBtn"
+                        aria-label="Close dialog"
+                    >
+                        <span class="material-symbols-outlined" style="font-size: 18px"
+                            >close</span
+                        >
+                    </button>
+                </div>
+                <iframe
+                    class="modal-frame"
+                    id="contactFrame"
+                    src="contact-form.html"
+                    title="Contact form"
+                ></iframe>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                // ---- Contact modal (form in reusable iframe doc) ----
+                var modal = document.getElementById("contactModal");
+                var openBtn = document.getElementById("contactOpenBtn");
+                var closeBtn = document.getElementById("contactCloseBtn");
+                if (modal && openBtn && closeBtn) {
+                    function openModal() {
+                        modal.hidden = false;
+                        document.body.style.overflow = "hidden";
+                        closeBtn.focus();
+                    }
+                    function closeModal() {
+                        modal.hidden = true;
+                        document.body.style.overflow = "";
+                        openBtn.focus();
+                    }
+                    openBtn.addEventListener("click", openModal);
+                    closeBtn.addEventListener("click", closeModal);
+                    modal.addEventListener("click", function (e) {
+                        if (e.target === modal) closeModal();
+                    });
+                    document.addEventListener("keydown", function (e) {
+                        if (e.key === "Escape" && !modal.hidden) closeModal();
+                    });
+                }
+            })();
+        </script>
+    
+        <script>
+            (function () {
+                var b = document.getElementById("docContactBtn");
+                var openBtn = document.getElementById("contactOpenBtn");
+                if (b && openBtn) b.addEventListener("click", function () { openBtn.click(); });
+            })();
+        </script>
+    </body>
+</html>

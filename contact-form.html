@@ -1,0 +1,347 @@
+<!doctype html>
+<!--
+  Reusable contact form document.
+  Embed anywhere:  <iframe src="contact-form.html" class="your-frame" title="Contact form"></iframe>
+  Submits JSON to /api/contact (same origin). Honeypot field "company_website"
+  silently discards bot submissions without any visible feedback.
+-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Contact Form</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
+            rel="stylesheet"
+        />
+        <style>
+            *,
+            *::before,
+            *::after {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            :root {
+                --font-display: "Hanken Grotesk", sans-serif;
+                --font-body: "Inter", sans-serif;
+                --font-mono: "JetBrains Mono", monospace;
+                --slate-50: #f8fafc;
+                --slate-100: #f1f5f9;
+                --slate-200: #e2e8f0;
+                --slate-300: #cbd5e1;
+                --slate-400: #94a3b8;
+                --slate-500: #64748b;
+                --slate-600: #475569;
+                --slate-700: #334155;
+                --slate-900: #0f172a;
+                --sky-500: #0ea5e9;
+                --sky-600: #0284c7;
+                --sky-700: #0369a1;
+                --emerald-50: #ecfdf5;
+                --emerald-200: #a7f3d0;
+                --emerald-600: #059669;
+                --emerald-700: #047857;
+                --rose-50: #fff1f2;
+                --rose-200: #fecdd3;
+                --rose-600: #e11d48;
+                --rose-700: #be123c;
+            }
+
+            html,
+            body {
+                height: 100%;
+            }
+
+            body {
+                font-family: var(--font-body);
+                font-size: 14px;
+                line-height: 22px;
+                color: var(--slate-900);
+                background: #ffffff;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .cf-wrap {
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .cf-intro {
+                font-size: 12px;
+                line-height: 16px;
+                color: var(--slate-600);
+            }
+
+            .cf-field {
+                display: flex;
+                flex-direction: column;
+                gap: 6px;
+            }
+
+            .cf-label {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                line-height: 14px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: var(--slate-700);
+            }
+
+            .cf-input,
+            .cf-textarea {
+                width: 100%;
+                background: #ffffff;
+                border: 1px solid var(--slate-300);
+                border-radius: 4px;
+                color: var(--slate-900);
+                font-family: var(--font-body);
+                font-size: 14px;
+                line-height: 22px;
+                padding: 10px 12px;
+            }
+
+            .cf-input::placeholder,
+            .cf-textarea::placeholder {
+                color: var(--slate-400);
+            }
+
+            .cf-input:focus,
+            .cf-textarea:focus {
+                outline: none;
+                border-color: var(--sky-600);
+                box-shadow: 0 0 0 1px var(--sky-600);
+            }
+
+            .cf-textarea {
+                resize: vertical;
+                min-height: 96px;
+            }
+
+            /* Honeypot: hidden from humans, visible to naive bots */
+            .cf-hp {
+                position: absolute !important;
+                left: -9999px !important;
+                width: 1px;
+                height: 1px;
+                overflow: hidden;
+            }
+
+            .cf-submit {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                gap: 8px;
+                padding: 12px 24px;
+                border-radius: 4px;
+                background: var(--sky-600);
+                color: #ffffff;
+                font-family: var(--font-display);
+                font-size: 14px;
+                line-height: 20px;
+                letter-spacing: -0.01em;
+                font-weight: 600;
+                border: none;
+                cursor: pointer;
+                transition: background-color 0.15s ease;
+            }
+
+            .cf-submit:hover {
+                background: var(--sky-700);
+            }
+
+            .cf-submit:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+
+            .cf-status {
+                display: none;
+                font-family: var(--font-mono);
+                font-size: 12px;
+                line-height: 16px;
+                font-weight: 500;
+            }
+
+            .cf-status.visible {
+                display: block;
+            }
+
+            .cf-status.ok {
+                color: var(--emerald-700);
+            }
+
+            .cf-status.err {
+                color: var(--rose-600);
+            }
+
+            .cf-done {
+                display: none;
+                padding: 2rem 1.5rem;
+                text-align: center;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.75rem;
+            }
+
+            .cf-done.visible {
+                display: flex;
+            }
+
+            .cf-done-icon {
+                width: 48px;
+                height: 48px;
+                border-radius: 9999px;
+                background: var(--emerald-50);
+                border: 1px solid var(--emerald-200);
+                color: var(--emerald-600);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+            }
+
+            .cf-done h2 {
+                font-family: var(--font-display);
+                font-size: 20px;
+                line-height: 28px;
+                letter-spacing: -0.015em;
+                font-weight: 700;
+                color: var(--slate-900);
+            }
+
+            .cf-done p {
+                font-size: 13px;
+                line-height: 20px;
+                color: var(--slate-600);
+                max-width: 20rem;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="cf-wrap" id="cfWrap">
+            <p class="cf-intro">
+                Questions about provenance coverage, pricing, or an enterprise
+                audit? We respond within one business day.
+            </p>
+            <form id="cfForm" novalidate>
+                <div class="cf-field">
+                    <label class="cf-label" for="cfName">Full Name</label>
+                    <input
+                        class="cf-input"
+                        id="cfName"
+                        name="name"
+                        type="text"
+                        placeholder="Ada Lovelace"
+                        autocomplete="name"
+                        required
+                    />
+                </div>
+                <div class="cf-field">
+                    <label class="cf-label" for="cfEmail">Work Email</label>
+                    <input
+                        class="cf-input"
+                        id="cfEmail"
+                        name="email"
+                        type="email"
+                        placeholder="ada@enterprise.com"
+                        autocomplete="email"
+                        required
+                    />
+                </div>
+                <!-- Honeypot: humans never see or fill this; bots do -->
+                <div class="cf-field cf-hp" aria-hidden="true">
+                    <label for="cfHp">Company Website</label>
+                    <input
+                        id="cfHp"
+                        name="company_website"
+                        type="text"
+                        tabindex="-1"
+                        autocomplete="off"
+                    />
+                </div>
+                <div class="cf-field">
+                    <label class="cf-label" for="cfMsg">Message</label>
+                    <textarea
+                        class="cf-textarea"
+                        id="cfMsg"
+                        name="message"
+                        placeholder="Tell us about your repositories, team size, or compliance timeline."
+                        required
+                    ></textarea>
+                </div>
+                <button class="cf-submit" type="submit" id="cfSubmit">
+                    Send Message
+                </button>
+                <p class="cf-status" id="cfStatus" role="status"></p>
+            </form>
+        </div>
+        <div class="cf-done" id="cfDone">
+            <div class="cf-done-icon" aria-hidden="true">&#10003;</div>
+            <h2>Message received</h2>
+            <p>
+                Thanks for reaching out. A member of the AIthentica team will
+                reply within one business day.
+            </p>
+        </div>
+        <script>
+            (function () {
+                var form = document.getElementById("cfForm");
+                var name = document.getElementById("cfName");
+                var email = document.getElementById("cfEmail");
+                var msg = document.getElementById("cfMsg");
+                var hp = document.getElementById("cfHp");
+                var btn = document.getElementById("cfSubmit");
+                var status = document.getElementById("cfStatus");
+                var done = document.getElementById("cfDone");
+
+                function showDone() {
+                    document.getElementById("cfWrap").style.display = "none";
+                    done.classList.add("visible");
+                }
+
+                form.addEventListener("submit", async function (e) {
+                    e.preventDefault();
+                    // Honeypot triggered: pretend success, send nothing.
+                    if (hp.value !== "") {
+                        showDone();
+                        return;
+                    }
+                    if (!name.checkValidity() || !email.checkValidity() || !msg.checkValidity()) {
+                        [name, email, msg].forEach(function (f) {
+                            if (!f.checkValidity()) f.reportValidity();
+                        });
+                        return;
+                    }
+                    btn.disabled = true;
+                    status.className = "cf-status";
+                    try {
+                        var res = await fetch("/api/contact", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            body: JSON.stringify({
+                                name: name.value.trim(),
+                                email: email.value.trim(),
+                                message: msg.value.trim(),
+                            }),
+                        });
+                        if (!res.ok) throw new Error("HTTP " + res.status);
+                        showDone();
+                    } catch (err) {
+                        status.classList.add("visible", "err");
+                        status.textContent =
+                            "\u26A0 Message service unreachable. Try again shortly.";
+                    } finally {
+                        btn.disabled = false;
+                    }
+                });
+            })();
+        </script>
+    </body>
+</html>

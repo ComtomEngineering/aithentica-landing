@@ -1,0 +1,807 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Creative Process Provenance Suite | AIthentica</title>
+        <meta name="description" content="Automated background logging of prompt iterations, manual revisions, and human approvals, sealed into a tamper-proof cryptographic ledger for authorship defense." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="assets/site.css" />
+    </head>
+    <body>
+        <!-- ============ Header ============ -->
+        <header class="site-header">
+            <div class="notice-bar">
+                <div class="notice-inner">
+                    <div class="notice-left">
+                        <span class="pulse-dot"></span>
+                        <span class="t-caps notice-label"
+                            >REGULATORY NOTICE</span
+                        ><span class="t-body-sm notice-text"
+                            >US Copyright Office issues 2025 AI Authorship
+                            Guidance on human intellectual conception
+                            requirements.</span
+                        >
+                    </div>
+                    <a
+                        class="t-mono notice-link"
+                        href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <span>VIEW COMPLIANCE BRIEF</span
+                        ><span class="material-symbols-outlined" style="font-size: 14px"
+                            >arrow_forward</span
+                        >
+                    </a>
+                </div>
+            </div>
+            <div class="nav-row">
+                <a class="brand" href="index.html">
+                    <img
+                        alt="AIthentica Logo"
+                        class="brand-logo"
+                        src="/img/logo.png"
+                    />
+                    <div class="brand-col">
+                        <span class="brand-name">AIthentica</span>
+                        <span class="brand-sub">Enterprise IP Provenance</span>
+                    </div>
+                </a>
+                <nav class="main-nav" aria-label="Primary">
+                    <a class="nav-link" href="index.html#problems">The Problem</a>
+                    <div class="nav-item">
+                        <button class="nav-btn" type="button">
+                            <span>Solutions</span>
+                            <span class="material-symbols-outlined"
+                                >expand_more</span
+                            >
+                        </button>
+                        <div class="dropdown">
+                            <a href="provenance-suite.html"
+                                >Creative Process Provenance Suite</a
+                            ><a href="license-scanner.html"
+                                >AI Code License Contamination Scanner</a
+                            >
+                        </div>
+                    </div>
+                    <a class="nav-link" href="index.html#audience">Who It's For</a>
+                </nav>
+                <div class="nav-actions">
+                    <a class="btn-ghost" href="index.html#subscribe"
+                        >Scan Your Repository</a
+                    ><a class="btn-primary-nav" href="index.html#subscribe"
+                        >Request Access / Demo</a
+                </div>
+            </div>
+        </header>
+
+        <main>
+        <style>
+            .product-hero {
+                position: relative;
+                padding-top: calc(var(--header-h) + 4rem);
+                padding-bottom: 3.5rem;
+                border-bottom: 1px solid var(--slate-200);
+                overflow: hidden;
+            }
+
+            .product-hero::before {
+                content: "";
+                position: absolute;
+                top: -160px;
+                right: -120px;
+                width: 560px;
+                height: 560px;
+                border-radius: 9999px;
+                background: radial-gradient(
+                    circle,
+                    var(--product-glow) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+
+            .product-hero-sky {
+                --product-glow: rgba(14, 165, 233, 0.09);
+            }
+
+            .product-hero-emerald {
+                --product-glow: rgba(16, 185, 129, 0.09);
+            }
+
+            .product-chip-row {
+                display: flex;
+                align-items: center;
+                gap: 1rem;
+                flex-wrap: wrap;
+                margin-bottom: 1.75rem;
+            }
+
+            .product-specs {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                margin-top: 2.5rem;
+            }
+
+            @media (min-width: 768px) {
+                .product-specs {
+                    grid-template-columns: repeat(3, 1fr);
+                }
+            }
+
+            .spec-card {
+                background: #ffffff;
+                border: 1px solid var(--slate-200);
+                border-radius: 8px;
+                padding: 1.25rem;
+            }
+
+            .spec-label {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                line-height: 14px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: var(--slate-500);
+                margin-bottom: 6px;
+            }
+
+            .spec-value {
+                font-family: var(--font-display);
+                font-size: 22px;
+                line-height: 30px;
+                letter-spacing: -0.01em;
+                font-weight: 700;
+                color: var(--slate-900);
+            }
+
+            .spec-sub {
+                font-size: 13px;
+                line-height: 20px;
+                color: var(--slate-500);
+                margin-top: 4px;
+            }
+
+            .product-cta-row {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                margin-top: 2.5rem;
+            }
+
+            .feature-grid {
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+
+            @media (min-width: 1024px) {
+                .feature-grid {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            .feature-tile {
+                background: #ffffff;
+                border: 1px solid var(--slate-200);
+                border-radius: 8px;
+                padding: 1.5rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .feature-tile h4 {
+                font-family: var(--font-display);
+                font-size: 16px;
+                line-height: 24px;
+                letter-spacing: -0.01em;
+                font-weight: 600;
+                color: var(--slate-900);
+            }
+
+            .feature-tile p {
+                font-size: 14px;
+                line-height: 22px;
+                color: var(--slate-500);
+            }
+
+            .cross-link-band {
+                border-top: 1px solid var(--slate-200);
+                border-bottom: 1px solid var(--slate-200);
+                background: var(--slate-50);
+                padding: 3rem 0;
+            }
+
+            .cross-link-inner {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+
+            .cross-link-inner h3 {
+                font-family: var(--font-display);
+                font-size: 24px;
+                line-height: 32px;
+                letter-spacing: -0.015em;
+                font-weight: 700;
+                color: var(--slate-900);
+            }
+
+            .cross-link-inner p {
+                font-size: 15px;
+                line-height: 24px;
+                color: var(--slate-600);
+                max-width: 34rem;
+                margin-top: 0.5rem;
+            }
+
+            .product-footer-cta {
+                padding: 4.5rem 0 5rem;
+                text-align: center;
+            }
+
+            .product-footer-cta h2 {
+                font-family: var(--font-display);
+                font-size: 36px;
+                line-height: 44px;
+                letter-spacing: -0.02em;
+                font-weight: 700;
+                color: var(--slate-900);
+                max-width: 40rem;
+                margin: 0 auto 1rem;
+            }
+
+            .product-footer-cta p {
+                font-size: 16px;
+                line-height: 28px;
+                color: var(--slate-500);
+                max-width: 34rem;
+                margin: 0 auto 2rem;
+            }
+
+            .product-footer-cta .product-cta-row {
+                justify-content: center;
+                margin-top: 0;
+            }
+        </style>
+
+            <!-- ============ Product Hero ============ -->
+            <section class="product-hero product-hero-sky">
+                <div class="wrap">
+                    <div class="product-chip-row">
+                        <span class="tool-chip-sky"
+                            >Tool A &bull; Authorship &amp; IP Protection</span
+                        ><span class="t-mono tool-live-emerald"
+                            ><span
+                                class="material-symbols-outlined"
+                                style="font-size: 14px"
+                                >bolt</span
+                            >
+                            Live v1.0</span
+                        >
+                    </div>
+                    <h1 class="t-display" style="max-width: 52rem">
+                        Creative Process Provenance Suite
+                    </h1>
+                    <p class="t-body-lg hero-sub" style="margin-top: 1.5rem; max-width: 46rem">
+                        Automated background logging of prompt iterations, manual
+                        revisions, synthesis stages, and human-in-the-loop
+                        approvals &mdash; sealed into a tamper-proof ledger your
+                        counsel can defend and your auditors can verify.
+                    </p>
+                    <div class="product-cta-row">
+                        <a
+                            class="btn-hero-primary"
+                            href="index.html#subscribe"
+                        >
+                            <span
+                                class="material-symbols-outlined"
+                                style="font-size: 18px"
+                                >verified_user</span
+                            ><span>Start Free Repository Scan</span>
+                        </a>
+                        <button type="button" class="btn-hero-secondary" id="docContactBtn">
+                            <span
+                                class="material-symbols-outlined"
+                                style="font-size: 18px; color: var(--slate-500)"
+                                >gavel</span
+                            ><span>Book IP Audit Briefing</span>
+                        </button>
+                    </div>
+                    <div class="product-specs">
+                        <div class="spec-card">
+                            <div class="spec-label">Interface</div>
+                            <div class="spec-value">SDK v4.12</div>
+                            <div class="spec-sub"
+                                >REST &amp; gRPC, plus native IDE and design-tool plugins</div
+                            >
+                        </div>
+                        <div class="spec-card">
+                            <div class="spec-label">Connectors Synced</div>
+                            <div class="spec-value">4 Workspaces</div>
+                            <div class="spec-sub"
+                                >VS Code, JetBrains, Figma, Google Docs / Word</div
+                            >
+                        </div>
+                        <div class="spec-card">
+                            <div class="spec-label">Capture Latency</div>
+                            <div class="spec-value">&lt;14ms Buffer</div>
+                            <div class="spec-sub"
+                                >Local-first agents queue offline and backfill on reconnect</div
+                            >
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ Feature Grid ============ -->
+            <section class="section">
+                <div class="wrap">
+                    <div class="section-head-center">
+                        <span class="t-caps eyebrow"
+                            >What the Ledger Captures</span>
+                        ><h2 class="t-headline-xl">
+                            Every Human Decision, Sealed as It Happens
+                        </h2>
+                        <p class="t-body-md">
+                            No manual attestation steps. The suite observes your
+                            normal workflow and converts it into continuous,
+                            signed evidence.
+                        </p>
+                    </div>
+                    <div class="feature-grid">
+                        <div class="feature-tile">
+                            <div class="feature-icon feature-icon-emerald">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 18px; display: block"
+                                    >lock_clock</span
+                                >
+                            </div>
+                            <h4>One-Click Cryptographic Proofs</h4>
+                            <p>Generates tamper-proof cryptographic proofs of authorship instantly, sealing deltas into an audit-ready ledger. Every proof is a COSE-signed record verifiable offline by anyone holding the publication seal.</p>
+                        </div>
+                        <div class="feature-tile">
+                            <div class="feature-icon feature-icon-emerald">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 18px; display: block"
+                                    >extension</span
+                                >
+                            </div>
+                            <h4>Native Workspace Integrations</h4>
+                            <p>Zero-friction plugins for VS Code and JetBrains IDEs on the code side, Figma for design provenance, and Google Docs / Microsoft Word for copy teams. Designers and writers keep their tools; the ledger grows in the background.</p>
+                        </div>
+                        <div class="feature-tile">
+                            <div class="feature-icon feature-icon-emerald">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 18px; display: block"
+                                    >fact_check</span
+                                >
+                            </div>
+                            <h4>Statutory Conception Index</h4>
+                            <p>Continuous scoring of each artifact against U.S. Copyright Office “de minimis” thresholds, so you know at any moment whether a work has viable human authorship &mdash; before a filing or a dispute forces the question.</p>
+                        </div>
+                        <div class="feature-tile">
+                            <div class="feature-icon feature-icon-emerald">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 18px; display: block"
+                                    >history</span
+                                >
+                            </div>
+                            <h4>Prompt Iteration History</h4>
+                            <p>Every prompt, revision, and rejected generation is captured with identity and timestamp. The pattern of human selection across dozens of model outputs is precisely the conception evidence USCO guidance points to.</p>
+                        </div>
+                        <div class="feature-tile">
+                            <div class="feature-icon feature-icon-emerald">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 18px; display: block"
+                                    >draw</span
+                                >
+                            </div>
+                            <h4>Manual Revision Deltas</h4>
+                            <p>Human edits over generated output are recorded as signed deltas &mdash; what changed, who changed it, and when. This separates human contribution from model synthesis with the granularity a court or examiner needs.</p>
+                        </div>
+                        <div class="feature-tile">
+                            <div class="feature-icon feature-icon-emerald">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 18px; display: block"
+                                    >how_to_reg</span
+                                >
+                            </div>
+                            <h4>USCO-Ready Filing Exports</h4>
+                            <p>Export cryptographically signed legal proof in PDF or JSON-LD, formatted for federal registration filings. AI-portion disclosures generate directly from ledger records, so the filing matches the evidence.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ Pipeline Steps ============ -->
+            <section class="section section-alt">
+                <div class="wrap">
+                    <div class="section-head-center">
+                        <span class="t-caps eyebrow"
+                            >From First Prompt to Federal Filing</span
+                        ><h2 class="t-headline-xl">
+                            The Provenance Pipeline in Three Moves
+                        </h2>
+                        <p class="t-body-md">
+                            Connect once. The pipeline runs continuously; you
+                            only touch it when you need the evidence.
+                        </p>
+                    </div>
+                    <div class="steps-grid">
+                        <!-- Step 1 -->
+                        <div class="step-card">
+                            <div>
+                                <div class="step-head">
+                                    <span class="step-num-sky">01</span>
+                                    <span class="step-chip">CONNECT</span>
+                                </div>
+                                <h3>Ingest &amp; Monitor</h3>
+                                <p class="t-body-md">
+                                    Connect your GitHub, GitLab, Figma, Google
+                                    Workspace, or local IDE in seconds with
+                                    read-only cryptographic agents.
+                                </p>
+                                <div class="step-well t-mono">
+                                    <div class="well-row">
+                                        <span class="well-dot"></span>
+                                        <span
+                                            >GitHub Org Connected (124 Repos)</span
+                                        >
+                                    </div>
+                                    <div class="well-row-muted">
+                                        <span class="well-dot"></span>
+                                        <span
+                                            >Figma Enterprise Webhook Live</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-mono step-foot-muted">
+                                LATENCY: &lt;14MS BUFFER
+                            </div>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="step-card step-card-active">
+                            <span class="step-badge-active"
+                                >Active Engine</span>
+                            <div>
+                                <div class="step-head">
+                                    <span class="step-num-emerald">02</span>
+                                    <span class="step-chip step-chip-emerald"
+                                        >ATTEST</span
+                                    >
+                                </div>
+                                <h3>Continuous Attestation</h3>
+                                <p class="t-body-md">
+                                    Micro-heuristics parse human keystrokes,
+                                    prompt iterations, and model synthesis
+                                    blocks, sealing each conception event into
+                                    the ledger in real time.
+                                </p>
+                                <div class="step-well step-well-emerald t-mono">
+                                    <div class="well-row-between">
+                                        <span class="left"
+                                            >Human Conception:</span
+                                        ><span class="well-val-emerald"
+                                            >Passed (82%)</span
+                                        >
+                                    </div>
+                                    <div class="well-row-between">
+                                        <span class="left"
+                                            >Conception Index Trend:</span
+                                        ><span class="well-val-emerald"
+                                            >Rising 6 wks</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-mono step-foot-emerald">
+                                REAL-TIME ATTESTATION ENGINE
+                            </div>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="step-card">
+                            <div>
+                                <div class="step-head">
+                                    <span class="step-num-sky">03</span>
+                                    <span class="step-chip" style="color: var(--sky-800)"
+                                        >EXPORT</span
+                                    >
+                                </div>
+                                <h3>USCO Legal Defense Pack</h3>
+                                <p class="t-body-md">
+                                    Export cryptographically signed legal proof
+                                    in PDF or JSON-LD format, ready for federal
+                                    registration or litigation support.
+                                </p>
+                                <div class="step-well t-mono">
+                                    <div class="well-row">
+                                        <span class="well-dot"></span>
+                                        <span
+                                            >Evidence Packet Sealed (2.4 MB)</span
+                                        >
+                                    </div>
+                                    <div class="well-row-muted">
+                                        <span class="well-dot"></span>
+                                        <span
+                                            >Merkle Root Verified Offline</span
+                                        >
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="t-mono step-foot-muted">
+                                VERIFIABLE WITHOUT OUR INFRASTRUCTURE
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ============ Cross-link to License Scanner ============ -->
+            <section class="cross-link-band">
+                <div class="wrap cross-link-inner">
+                    <div>
+                        <h3>Protect the code, too.</h3>
+                        <p>
+                            The Provenance Suite proves who created your work.
+                            The License Scanner proves what licenses your code
+                            carries &mdash; and blocks copyleft contamination
+                            before it merges.
+                        </p>
+                    </div>
+                    <a class="link-arrow" href="license-scanner.html">
+                        <span>Inspect License Scanner</span>
+                        <span
+                            class="material-symbols-outlined"
+                            style="font-size: 16px"
+                            >arrow_forward</span
+                        >
+                    </a>
+                </div>
+            </section>
+
+            <!-- ============ Final CTA ============ -->
+            <section class="product-footer-cta">
+                <div class="wrap">
+                    <h2>Your Creative Output, Defensible by Default.</h2>
+                    <p>
+                        Start with a free scan of up to 10 repositories. No
+                        credit card, no agent installation required for the
+                        baseline.
+                    </p>
+                    <div class="product-cta-row">
+                        <a
+                            class="btn-hero-primary"
+                            href="index.html#subscribe"
+                        >
+                            <span
+                                class="material-symbols-outlined"
+                                style="font-size: 18px"
+                                >verified_user</span
+                            ><span>Start Free Repository Scan</span>
+                        </a>
+                        <a class="btn-hero-secondary" href="whitepaper.html">
+                            <span
+                                class="material-symbols-outlined"
+                                style="font-size: 18px; color: var(--slate-500)"
+                                >description</span
+                            ><span>Read the Legal Whitepaper</span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============ Footer ============ -->
+        <footer class="site-footer">
+            <div class="wrap">
+                <div class="footer-grid">
+                    <div class="footer-brand-col">
+                        <div class="footer-brand">
+                            <img
+                                alt="AIthentica Logo"
+                                class="footer-logo"
+                                src="/img/logo.png"
+                            />
+                            <span class="brand-name">AIthentica</span>
+                        </div>
+                        <p class="t-body-sm footer-desc">
+                            Forensic AI provenance, cryptographic human
+                            authorship attestation, and enterprise intellectual
+                            property protection systems.
+                        </p>
+                        <div class="footer-badges">
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--emerald-600)"
+                                    >verified</span
+                                >
+                                SOC 2 Type II
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--emerald-600)"
+                                    >lock</span
+                                >
+                                ISO 27001
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--sky-700)"
+                                    >gavel</span
+                                >
+                                USCO Guidelines
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--indigo-600)"
+                                    >policy</span
+                                >
+                                EU AI Act Ready
+                            </span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li>
+                                <a href="provenance-suite.html"
+                                    >Creative Process Provenance Suite</a
+                                >
+                            </li>
+                            <li>
+                                <a href="license-scanner.html"
+                                    >AI Code License Contamination Scanner</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Risk Assessment</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html#problems"
+                                    >Training Data Liability</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#problems"
+                                    >USCO Copyright Filing</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#problems">Model Black Box Risk</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Get Started</h4>
+                        <ul>
+                            <li>
+                                <a href="index.html#subscribe"
+                                    >Request Access / Demo</a
+                                >
+                            </li>
+                            <li>
+                                <a href="index.html#subscribe"
+                                    >Scan Your Repository</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="t-mono">
+                        © 2025 AIthentica Systems Inc. Cryptographic Evidence
+                        Layer v4.12. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-service.html">Terms of Service</a>
+                        <button
+                            type="button"
+                            class="footer-contact-btn"
+                            id="contactOpenBtn"
+                        >
+                            Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ============ Contact Modal (form lives in reusable iframe doc) ============ -->
+        <div class="modal-overlay" id="contactModal" hidden>
+            <div
+                class="modal-dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="contactModalTitle"
+            >
+                <div class="modal-head">
+                    <h3 id="contactModalTitle" class="t-headline-sm">
+                        Contact AIthentica
+                    </h3>
+                    <button
+                        type="button"
+                        class="modal-close"
+                        id="contactCloseBtn"
+                        aria-label="Close dialog"
+                    >
+                        <span class="material-symbols-outlined" style="font-size: 18px"
+                            >close</span
+                        >
+                    </button>
+                </div>
+                <iframe
+                    class="modal-frame"
+                    id="contactFrame"
+                    src="contact-form.html"
+                    title="Contact form"
+                ></iframe>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                // ---- Contact modal (form in reusable iframe doc) ----
+                var modal = document.getElementById("contactModal");
+                var openBtn = document.getElementById("contactOpenBtn");
+                var closeBtn = document.getElementById("contactCloseBtn");
+                if (modal && openBtn && closeBtn) {
+                    function openModal() {
+                        modal.hidden = false;
+                        document.body.style.overflow = "hidden";
+                        closeBtn.focus();
+                    }
+                    function closeModal() {
+                        modal.hidden = true;
+                        document.body.style.overflow = "";
+                        openBtn.focus();
+                    }
+                    openBtn.addEventListener("click", openModal);
+                    closeBtn.addEventListener("click", closeModal);
+                    modal.addEventListener("click", function (e) {
+                        if (e.target === modal) closeModal();
+                    });
+                    document.addEventListener("keydown", function (e) {
+                        if (e.key === "Escape" && !modal.hidden) closeModal();
+                    });
+                }
+                var b = document.getElementById("docContactBtn");
+                var ob2 = document.getElementById("contactOpenBtn");
+                if (b && ob2) b.addEventListener("click", function () { ob2.click(); });
+            })();
+        </script>
+    </body>
+</html>
