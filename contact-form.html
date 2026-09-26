@@ -1,10 +1,4 @@
 <!doctype html>
-<!--
-  Reusable contact form document.
-  Embed anywhere:  <iframe src="contact-form.html" class="your-frame" title="Contact form"></iframe>
-  Submits JSON to /api/contact (same origin). Honeypot field "company_website"
-  silently discards bot submissions without any visible feedback.
--->
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -82,6 +76,12 @@
                 display: flex;
                 flex-direction: column;
                 gap: 6px;
+            }
+
+            #cfForm {
+                display: flex;
+                flex-direction: column;
+                gap: 1rem;
             }
 
             .cf-label {
@@ -322,7 +322,7 @@
                     btn.disabled = true;
                     status.className = "cf-status";
                     try {
-                        var res = await fetch("/api/contact", {
+                        var res = await fetch("https://api.aithentica.comtom.engineering/v1/contact", {
                             method: "POST",
                             headers: { "Content-Type": "application/json" },
                             body: JSON.stringify({
