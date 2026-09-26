@@ -83,7 +83,7 @@
                 <div class="nav-actions">
                     <a class="btn-ghost" href="/#subscribe"
                         >Scan Your Repository</a
-                    ><a class="btn-primary-nav" href="/#subscribe"
+                    ><a class="btn-primary-nav js-contact-cta" href="/#subscribe"
                         >Request Access / Demo</a
                 </div>
             </div>
@@ -711,7 +711,7 @@
                         <h4>Get Started</h4>
                         <ul>
                             <li>
-                                <a href="/#subscribe"
+                                <a class="js-contact-cta" href="/#subscribe"
                                     >Request Access / Demo</a
                                 >
                             </li>
@@ -793,6 +793,12 @@
                         openBtn.focus();
                     }
                     openBtn.addEventListener("click", openModal);
+                    document.querySelectorAll(".js-contact-cta").forEach(function (el) {
+                        el.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            openModal();
+                        });
+                    });
                     closeBtn.addEventListener("click", closeModal);
                     modal.addEventListener("click", function (e) {
                         if (e.target === modal) closeModal();
