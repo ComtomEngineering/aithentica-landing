@@ -1,0 +1,669 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Privacy Policy | AIthentica</title>
+        <meta name="description" content="How AIthentica collects, uses, and protects your data across the Creative Process Provenance Suite and AI Code License Contamination Scanner." />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Space+Grotesk:wght@500;600&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="apple-touch-icon" sizes="180x180" href="/img/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="/img/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/img/favicon-16x16.png">
+        <link rel="manifest" href="/site.webmanifest">
+        <link rel="stylesheet" href="assets/site.css" />
+    </head>
+    <body>
+        <!-- ============ Header ============ -->
+        <header class="site-header">
+            <div class="notice-bar">
+                <div class="notice-inner">
+                    <div class="notice-left">
+                        <span class="pulse-dot"></span>
+                        <span class="t-caps notice-label"
+                            >REGULATORY NOTICE</span
+                        ><span class="t-body-sm notice-text"
+                            >US Copyright Office issues 2025 AI Authorship
+                            Guidance on human intellectual conception
+                            requirements.</span
+                        >
+                    </div>
+                    <a
+                        class="t-mono notice-link"
+                        href="https://www.copyright.gov/ai/Copyright-and-Artificial-Intelligence-Part-2-Copyrightability-Report.pdf"
+                        target="_blank"
+                        rel="noopener"
+                    >
+                        <span>VIEW COMPLIANCE BRIEF</span
+                        ><span class="material-symbols-outlined" style="font-size: 14px"
+                            >arrow_forward</span
+                        >
+                    </a>
+                </div>
+            </div>
+            <div class="nav-row">
+                <a class="brand" href="/">
+                    <img
+                        alt="AIthentica Logo"
+                        class="brand-logo"
+                        src="/img/logo.png"
+                    />
+                    <div class="brand-col">
+                        <span class="brand-name">AIthentica</span>
+                        <span class="brand-sub">Enterprise IP Provenance</span>
+                    </div>
+                </a>
+                <nav class="main-nav" aria-label="Primary">
+                    <a class="nav-link" href="/#problems">The Problem</a>
+                    <div class="nav-item">
+                        <button class="nav-btn" type="button">
+                            <span>Solutions</span>
+                            <span class="material-symbols-outlined"
+                                >expand_more</span
+                            >
+                        </button>
+                        <div class="dropdown">
+                            <a href="/#solutions"
+                                >Creative Process Provenance Suite</a
+                            ><a href="/#solutions"
+                                >AI Code License Contamination Scanner</a
+                            >
+                        </div>
+                    </div>
+                    <a class="nav-link" href="/#audience">Who It's For</a>
+                </nav>
+                <div class="nav-actions">
+                    <a class="btn-ghost" href="/#subscribe"
+                        >Scan Your Repository</a
+                    ><a class="btn-primary-nav js-contact-cta" href="/#subscribe"
+                        >Request Access / Demo</a
+                </div>
+            </div>
+        </header>
+
+        <main>
+        <style>
+            .doc-hero {
+                position: relative;
+                padding-top: calc(var(--header-h) + 4rem);
+                padding-bottom: 3.5rem;
+                border-bottom: 1px solid var(--slate-200);
+                overflow: hidden;
+            }
+
+            .doc-hero::before {
+                content: "";
+                position: absolute;
+                top: -160px;
+                right: -120px;
+                width: 520px;
+                height: 520px;
+                border-radius: 9999px;
+                background: radial-gradient(
+                    circle,
+                    rgba(14, 165, 233, 0.08) 0%,
+                    transparent 70%
+                );
+                pointer-events: none;
+            }
+
+            .doc-body {
+                padding-top: 4rem;
+                padding-bottom: 5rem;
+            }
+
+            .doc-col {
+                max-width: 46rem;
+            }
+
+            .doc-section {
+                margin-bottom: 3.5rem;
+            }
+
+            .doc-section h2 {
+                font-family: var(--font-display);
+                font-size: 28px;
+                line-height: 36px;
+                letter-spacing: -0.015em;
+                font-weight: 700;
+                color: var(--slate-900);
+                margin-bottom: 1rem;
+            }
+
+            .doc-section h3 {
+                font-family: var(--font-display);
+                font-size: 18px;
+                line-height: 26px;
+                letter-spacing: -0.01em;
+                font-weight: 600;
+                color: var(--slate-900);
+                margin-top: 2rem;
+                margin-bottom: 0.75rem;
+            }
+
+            .doc-section p {
+                font-size: 16px;
+                line-height: 28px;
+                color: var(--slate-600);
+                margin-bottom: 1rem;
+            }
+
+            .doc-section ul {
+                list-style: none;
+                margin: 1rem 0;
+                display: flex;
+                flex-direction: column;
+                gap: 0.75rem;
+            }
+
+            .doc-section ul li {
+                position: relative;
+                padding-left: 1.75rem;
+                font-size: 16px;
+                line-height: 28px;
+                color: var(--slate-600);
+            }
+
+            .doc-section ul li::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 9px;
+                width: 14px;
+                height: 14px;
+                border-radius: 9999px;
+                background: var(--emerald-50);
+                border: 1px solid var(--emerald-200);
+            }
+
+            .doc-section ul li::after {
+                content: "";
+                position: absolute;
+                left: 4px;
+                top: 13px;
+                width: 6px;
+                height: 3px;
+                border-left: 2px solid var(--emerald-600);
+                border-bottom: 2px solid var(--emerald-600);
+                transform: rotate(-45deg);
+            }
+
+            .doc-callout {
+                border-radius: 8px;
+                padding: 1.5rem;
+                margin: 2rem 0;
+                display: flex;
+                gap: 1rem;
+                align-items: flex-start;
+            }
+
+            .doc-callout-sky {
+                background: var(--sky-50);
+                border: 1px solid var(--sky-200);
+            }
+
+            .doc-callout-emerald {
+                background: var(--emerald-50);
+                border: 1px solid var(--emerald-200);
+            }
+
+            .doc-callout-indigo {
+                background: var(--indigo-50);
+                border: 1px solid var(--indigo-200);
+            }
+
+            .doc-callout p {
+                margin-bottom: 0;
+                font-size: 15px;
+                line-height: 24px;
+            }
+
+            .doc-meta {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1.5rem;
+                margin-top: 2rem;
+                padding-top: 1.5rem;
+                border-top: 1px solid var(--slate-200);
+            }
+
+            .doc-meta-item {
+                display: flex;
+                flex-direction: column;
+                gap: 4px;
+            }
+
+            .doc-meta-label {
+                font-family: var(--font-mono);
+                font-size: 11px;
+                line-height: 14px;
+                letter-spacing: 0.04em;
+                text-transform: uppercase;
+                font-weight: 600;
+                color: var(--slate-500);
+            }
+
+            .doc-meta-value {
+                font-size: 14px;
+                line-height: 20px;
+                color: var(--slate-900);
+                font-weight: 500;
+            }
+
+            .doc-cta {
+                margin-top: 3rem;
+                display: flex;
+                align-items: center;
+                gap: 1.5rem;
+                flex-wrap: wrap;
+            }
+        </style>
+
+            <!-- ============ Privacy Policy ============ -->
+            <section class="doc-hero">
+                <div class="wrap">
+                    <div class="hero-badge" style="margin-bottom: 1.5rem">
+                        <span class="dot"></span>
+                        <span class="t-caps" style="color: var(--sky-700)"
+                            >Legal &middot; Privacy</span
+                        >
+                    </div>
+                    <h1 class="t-display" style="max-width: 46rem">Privacy Policy</h1>
+                    <p class="t-body-lg hero-sub" style="margin-top: 1.5rem; max-width: 46rem">
+                        Your provenance data is the most sensitive thing you will
+                        ever entrust to a vendor. This policy states, in plain
+                        language, what we collect, why we collect it, and what we
+                        never do with it.
+                    </p>
+                </div>
+            </section>
+
+            <section class="doc-body">
+                <div class="wrap doc-col">
+                    <div class="doc-meta">
+                        <div class="doc-meta-item">
+                            <span class="doc-meta-label">Effective Date</span>
+                            <span class="doc-meta-value">September 24, 2025</span>
+                        </div>
+                        <div class="doc-meta-item">
+                            <span class="doc-meta-label">Version</span>
+                            <span class="doc-meta-value">1.2</span>
+                        </div>
+                        <div class="doc-meta-item">
+                            <span class="doc-meta-label">Applies To</span>
+                            <span class="doc-meta-value"
+                                >aithentica.com, Provenance Suite, Scanner API</span
+                            >
+                        </div>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>1. What We Collect</h2>
+                        <p>
+                            AIthentica operates two data planes with different
+                            sensitivity levels. We treat them differently by
+                            design, not by afterthought.
+                        </p>
+                        <h3>Account Data</h3>
+                        <ul>
+                            <li>Name and work email address used to create your account.</li>
+                            <li>Organization name, team size, and role (General Counsel, Engineering, Design).</li>
+                            <li>Billing contact information processed by our payment processor &mdash; card numbers never touch our servers.</li>
+                        </ul>
+                        <h3>Provenance Evidence</h3>
+                        <ul>
+                            <li>Cryptographic hashes of your creative artifacts (source files, design iterations, commit histories).</li>
+                            <li>Timestamped authorship attestations signed with keys you generate and control.</li>
+                            <li>Repository metadata: file paths, git history fingerprints, license headers detected by the scanner.</li>
+                        </ul>
+                        <h3>Operational Data</h3>
+                        <ul>
+                            <li>Scan job logs: repository name, scan duration, finding counts, severity distribution.</li>
+                            <li>Product usage analytics (page views, feature adoption) collected via first-party cookies only.</li>
+                            <li>Support correspondence sent through the contact form or email.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>2. What We Never Do</h2>
+                        <ul>
+                            <li>We never train machine learning models on your artifacts, hashes, or scan results &mdash; not for our customers, not for ourselves.</li>
+                            <li>We never sell, rent, or share your data with third parties for marketing purposes.</li>
+                            <li>We never store the full content of your source code. The scanner operates on fingerprints and license headers; file bodies are processed in ephemeral memory and discarded at job completion.</li>
+                            <li>We never use your provenance evidence to build a resellable database of &ldquo;who made what.&rdquo;</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>3. Why We Collect It</h2>
+                        <p>
+                            Provenance evidence exists to be admissible. Every
+                            data category we collect maps to a specific legal or
+                            operational purpose:
+                        </p>
+                        <ul>
+                            <li><strong>Authorship defense.</strong> Timestamped, signed attestations establish human intellectual conception under USCO guidance &mdash; the core of any copyright claim over AI-assisted work.</li>
+                            <li><strong>License compliance.</strong> Contamination scan results let engineering teams prove their codebase is free of copyleft exposure before an IPO, M&amp;A diligence call, or platform store submission.</li>
+                            <li><strong>Audit readiness.</strong> Exportable evidence packets satisfy SOC 2, ISO 27001, and EU AI Act documentation obligations without rebuilding history after the fact.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>4. How We Protect It</h2>
+                        <ul>
+                            <li>AES-256 encryption at rest for all evidence records; TLS 1.3 in transit.</li>
+                            <li>Customer-held signing keys: attestation private keys are generated on your infrastructure. We store only public verification material.</li>
+                            <li>SOC 2 Type II audited controls and ISO 27001 certified information security management.</li>
+                            <li>Role-based access with full audit logging; evidence records are append-only and tamper-evident by construction.</li>
+                            <li>Data residency options: US (Virginia) or EU (Frankfurt) regions for enterprise contracts.</li>
+                        </ul>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>5. Data Retention</h2>
+                        <p>
+                            Evidence records are retained for the life of your
+                            subscription plus a 90-day grace period, after which
+                            they are cryptographically shredded (NIST SP 800-88
+                            Purge). You may export your complete evidence
+                            portfolio at any time in open formats &mdash; COSE
+                            signatures, JWS attestations, and JSON evidence
+                            manifests. If you delete your account, retention
+                            shortens to 30 days.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>6. Cookies &amp; Tracking</h2>
+                        <p>
+                            We use first-party functional cookies to keep you
+                            signed in and remember workspace preferences. We do
+                            not run third-party advertising pixels, do not build
+                            cross-site profiles, and do not load external
+                            trackers beyond the web fonts served by Google
+                            Fonts (IP address transmitted, no content).
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>7. Your Rights</h2>
+                        <ul>
+                            <li><strong>Access.</strong> Request a full export of everything we hold about you and your organization.</li>
+                            <li><strong>Correction.</strong> Ask us to fix inaccurate account or billing data.</li>
+                            <li><strong>Deletion.</strong> Erase personal data on request, subject to legal hold obligations where evidence is under active litigation support.</li>
+                            <li><strong>Portability.</strong> All evidence exports use open cryptographic formats &mdash; you are never locked into our signature scheme.</li>
+                        </ul>
+                        <p>
+                            EU and UK residents have additional rights under the
+                            GDPR, including objection and restriction of
+                            processing. Contact our Data Protection Officer at
+                            privacy@aithentica.com.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>8. Subprocessors</h2>
+                        <p>
+                            We use a minimal, disclosed subprocessor list: AWS
+                            (compute and storage), Stripe (payments), and Google
+                            Fonts (typography). Each subprocessor is bound by
+                            data processing agreements no less protective than
+                            this policy. Material changes to the list trigger a
+                            30-day prior notice to enterprise customers.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>9. Changes to This Policy</h2>
+                        <p>
+                            Material changes are announced in-product and by
+                            email at least 30 days before taking effect. The
+                            version history of this policy is itself part of our
+                            provenance record &mdash; every revision is signed
+                            and timestamped, so you can verify exactly which
+                            policy governed your data at any point in time.
+                        </p>
+                    </div>
+
+                    <div class="doc-section">
+                        <h2>10. Contact</h2>
+                        <p>
+                            Questions about this policy, a data subject request,
+                            or a security concern: email privacy@aithentica.com
+                            or use the contact form below. Security reports are
+                            triaged within 24 hours.
+                        </p>
+                    </div>
+
+                    <div class="doc-callout doc-callout-sky">
+                        <span class="material-symbols-outlined" style="font-size: 20px; color: var(--sky-700)">verified_user</span>
+                        <p>
+                            <strong>Verification by design.</strong> This policy
+                            document is itself registered in our provenance
+                            ledger. The hash of this exact revision is pinned at
+                            the footer of every enterprise evidence export, so a
+                            future reader can prove which privacy terms applied
+                            when their data was collected.
+                        </p>
+                    </div>
+
+                    <div class="doc-cta">
+                        <a class="btn-hero-primary" href="/#subscribe">
+                            <span class="material-symbols-outlined" style="font-size: 18px">verified_user</span>
+                            <span>Start Free Repository Scan</span>
+                        </a>
+                        <button type="button" class="btn-hero-secondary" id="docContactBtn">
+                            <span class="material-symbols-outlined" style="font-size: 18px; color: var(--slate-500)">mail</span>
+                            <span>Contact Our DPO</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- ============ Footer ============ -->
+        <footer class="site-footer">
+            <div class="wrap">
+                <div class="footer-grid">
+                    <div class="footer-brand-col">
+                        <div class="footer-brand">
+                            <img
+                                alt="AIthentica Logo"
+                                class="footer-logo"
+                                src="/img/logo.png"
+                            />
+                            <span class="brand-name">AIthentica</span>
+                        </div>
+                        <p class="t-body-sm footer-desc">
+                            Forensic AI provenance, cryptographic human
+                            authorship attestation, and enterprise intellectual
+                            property protection systems.
+                        </p>
+                        <div class="footer-badges">
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--emerald-600)"
+                                    >verified</span
+                                >
+                                SOC 2 Type II
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--emerald-600)"
+                                    >lock</span
+                                >
+                                ISO 27001
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--sky-700)"
+                                    >gavel</span
+                                >
+                                USCO Guidelines
+                            </span>
+                            <span class="footer-badge">
+                                <span
+                                    class="material-symbols-outlined"
+                                    style="font-size: 14px; color: var(--indigo-600)"
+                                    >policy</span
+                                >
+                                EU AI Act Ready
+                            </span>
+                        </div>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Platform</h4>
+                        <ul>
+                            <li>
+                                <a href="/#solutions"
+                                    >Creative Process Provenance Suite</a
+                                >
+                            </li>
+                            <li>
+                                <a href="/#solutions"
+                                    >AI Code License Contamination Scanner</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Risk Assessment</h4>
+                        <ul>
+                            <li>
+                                <a href="/#problems"
+                                    >Training Data Liability</a
+                                >
+                            </li>
+                            <li>
+                                <a href="/#problems"
+                                    >USCO Copyright Filing</a
+                                >
+                            </li>
+                            <li>
+                                <a href="/#problems">Model Black Box Risk</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Get Started</h4>
+                        <ul>
+                            <li>
+                                <a class="js-contact-cta" href="/#subscribe"
+                                    >Request Access / Demo</a
+                                >
+                            </li>
+                            <li>
+                                <a href="/#subscribe"
+                                    >Scan Your Repository</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="t-mono">
+                        © 2025 AIthentica Systems Inc. Cryptographic Evidence
+                        Layer v4.12. All rights reserved.
+                    </p>
+                    <div class="footer-bottom-links">
+                        <a href="/privacy-policy">Privacy Policy</a>
+                        <a href="/terms-of-service">Terms of Service</a>
+                        <button
+                            type="button"
+                            class="footer-contact-btn"
+                            id="contactOpenBtn"
+                        >
+                            Contact
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- ============ Contact Modal (form lives in reusable iframe doc) ============ -->
+        <div class="modal-overlay" id="contactModal" hidden>
+            <div
+                class="modal-dialog"
+                role="dialog"
+                aria-modal="true"
+                aria-labelledby="contactModalTitle"
+            >
+                <div class="modal-head">
+                    <h3 id="contactModalTitle" class="t-headline-sm">
+                        Contact AIthentica
+                    </h3>
+                    <button
+                        type="button"
+                        class="modal-close"
+                        id="contactCloseBtn"
+                        aria-label="Close dialog"
+                    >
+                        <span class="material-symbols-outlined" style="font-size: 18px"
+                            >close</span
+                        >
+                    </button>
+                </div>
+                <iframe
+                    class="modal-frame"
+                    id="contactFrame"
+                    src="contact-form.html"
+                    title="Contact form"
+                ></iframe>
+            </div>
+        </div>
+
+        <script>
+            (function () {
+                // ---- Contact modal (form in reusable iframe doc) ----
+                var modal = document.getElementById("contactModal");
+                var openBtn = document.getElementById("contactOpenBtn");
+                var closeBtn = document.getElementById("contactCloseBtn");
+                if (modal && openBtn && closeBtn) {
+                    function openModal() {
+                        modal.hidden = false;
+                        document.body.style.overflow = "hidden";
+                        closeBtn.focus();
+                    }
+                    function closeModal() {
+                        modal.hidden = true;
+                        document.body.style.overflow = "";
+                        openBtn.focus();
+                    }
+                    openBtn.addEventListener("click", openModal);
+                    document.querySelectorAll(".js-contact-cta").forEach(function (el) {
+                        el.addEventListener("click", function (e) {
+                            e.preventDefault();
+                            openModal();
+                        });
+                    });
+                    closeBtn.addEventListener("click", closeModal);
+                    modal.addEventListener("click", function (e) {
+                        if (e.target === modal) closeModal();
+                    });
+                    document.addEventListener("keydown", function (e) {
+                        if (e.key === "Escape" && !modal.hidden) closeModal();
+                    });
+                }
+            })();
+        </script>
+    
+        <script>
+            (function () {
+                var b = document.getElementById("docContactBtn");
+                var openBtn = document.getElementById("contactOpenBtn");
+                if (b && openBtn) b.addEventListener("click", function () { openBtn.click(); });
+            })();
+        </script>
+    </body>
+</html>
