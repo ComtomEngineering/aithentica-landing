@@ -785,7 +785,7 @@
 
             .deck-grid {
                 display: grid;
-                grid-template-columns: 1fr;
+                grid-template-columns: minmax(0, 1fr);
                 gap: 1rem;
             }
 
@@ -2282,6 +2282,36 @@
                     font-size: 32px;
                     line-height: 40px;
                 }
+
+                /* Hero deck: stack ledger + radar panels full-width and keep log rows readable */
+                .tl-item {
+                    flex-direction: column;
+                    align-items: stretch;
+                    gap: 6px;
+                }
+
+                .tl-item-left {
+                    flex-wrap: wrap;
+                    width: 100%;
+                }
+
+                .tl-item-desc {
+                    max-width: none;
+                    white-space: normal;
+                    margin-left: 24px;
+                    width: calc(100% - 24px);
+                }
+
+                .tl-item-right {
+                    align-self: flex-end;
+                }
+
+                .code-box-head > span:first-child {
+                    min-width: 0;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                }
             }
 
             @media (min-width: 768px) {
@@ -2322,7 +2352,7 @@
                 }
 
                 .deck-grid {
-                    grid-template-columns: repeat(12, 1fr);
+                    grid-template-columns: repeat(12, minmax(0, 1fr));
                 }
 
                 .panel-ledger {
